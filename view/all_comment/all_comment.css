@@ -1,0 +1,33 @@
+.all_comment>.product_deta_top{
+	position: relative;
+}
+.all_comment>.product_deta_top .pro_deta_right{
+   position: absolute;
+   right: 0;
+}
+.all_comment>.product_deta_top .button{
+	color:#ffffff;
+	border: none;
+	margin: 0 2px;
+	padding:2px;
+}
+
+.all_comment .pro_comment .user{
+	margin-bottom: 10px;
+}
+.all_comment .pro_comment .user>img{
+    width: 30px;
+    vertical-align:middle;
+}
+.all_comment .pro_comment .user>span{
+	font-size: 12px;
+	line-height: 30px;
+}
+.all_comment .pro_comment .comment_txt{
+   color:#8a8a8a;
+   font-size: 12px;
+}
+.all_comment .pro_eva_img img{
+   border: 1px solid #eee;
+   border-radius: 10px;
+}

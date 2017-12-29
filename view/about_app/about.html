@@ -1,0 +1,27 @@
+<ion-header-bar class="bar-balanced">
+       <div class="button" ng-click="oPrev()">
+             <i class="{{icon[0]}}"></i>
+       </div>
+       <h1 class="title" ng-click="on()">{{txt[0]}}</h1>
+</ion-header-bar>
+<ion-content class="about">
+	<div class="row">
+        <div class="col login_logo">
+            <img ng-src="{{img[0]}}" class="full-image" />
+        </div>
+	</div>
+	<ion-list>
+          <ion-item class="item-button-right" ng-repeat="key in about track by $index">
+                {{key.txt}}
+              <div class="button" ng-click="click(key.url)">
+                  <i class="{{icon[1]}}"></i>
+              </div>
+          </ion-item>
+          
+	</ion-list>
+	<div class="row">
+      <div class="col text-center footer">
+         {{txt[1]}}
+      </div>
+	</div>
+</ion-content>

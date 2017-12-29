@@ -1,0 +1,18 @@
+<div class="e_address">
+
+	<ion-header-bar class="bar-balanced">
+	      <div class="button" ng-click="oPrev()">
+	         <i class="icon ion-ios-arrow-left"></i>
+	      </div>
+	      <h1 class="title">编辑地址</h1>
+	      <button class="button" ng-click="fasho('ship_ads')">完成</button>
+	</ion-header-bar>
+	<ion-content class="margin_bottom">
+	     <ion-list>
+	         <ion-item class="item-input" ng-repeat="key in e_address">
+	            <span>{{key.txt}}</span><input type="text" name="" ng-model="key.value" value="{{key.value}}" />
+	         </ion-item>
+	     </ion-list>
+	</ion-content>
+
+</div>

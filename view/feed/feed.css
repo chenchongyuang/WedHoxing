@@ -1,0 +1,32 @@
+.feed_bg{
+	background:#eeeeee;
+}
+.feed_bg .feed_title_child{
+   color:#6c6b6b;
+   padding: 5px 10px;
+   font-size: 14px;
+}
+.feed_bg .feed_checkbox{
+  border:none;
+  margin: 0;
+}
+.feed_bg textarea{
+	resize: none;
+}
+.feed_bg .feed_border_t{
+   border-top: 1px solid #000;
+}
+.feed_bg .feed_border_l{
+   border-left: 1px solid #000;
+   box-sizing: border-box;
+}
+.feed_bg .item{
+   
+}
+.feed_bg .feed_font_c{
+  color:#000;
+  font-weight: bold;
+}
+.feed_bg .feed_font{
+  font-size: 14px;
+}

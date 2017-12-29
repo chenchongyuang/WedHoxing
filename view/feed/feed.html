@@ -1,0 +1,46 @@
+<ion-header-bar class="bar-balanced">
+   <div class="button" ng-click="oPrev()">
+      <i class="{{icon[0]}}" ></i>
+   </div>
+   <h1 class="title">意见反馈</h1>
+   <div class="button">
+        提交
+   </div>
+</ion-header-bar>
+<ion-content class="feed_bg">
+
+      <div class="feed_title_child"><span>问题类型</span></div>
+      <ion-list>
+         <ion-item ng-repeat="item in feed track by $index">
+           <div class="row" >
+              <div class="col col-20 feed_font_c">{{item.problem}}</div>
+              <div class="col col-offset-10 col-50 text-center"><span class="feed_font">{{item.feed_txt}}</span></div>
+              <div class="col col-10">
+                  <ion-checkbox class="feed_checkbox"></ion-checkbox>
+              </div>
+           </div>
+         </ion-item>
+      </ion-list>
+      <div class="feed_title_child"><span>详细描述</span></div>
+      <ion-list>
+	      <ion-item>
+	      <div class="row responsive-sm">
+	      <textarea class="col ">如果您对我们有什么建议、想法和期望，请告诉我们</textarea>
+	      </div>
+	      <div class="row row-wrap text-center">
+	         <div class="col col-25">
+                <div class="button">
+	             <img src="./img/upload_img.png" class="full-image" />
+		      </div>
+	         </div>
+	         <div class="col col-25"></div>
+		     <div class="col col-25"></div>
+		     <div class="col col-25"></div>
+		     <div class="col col-25 feed_border_t ">手机号</div>
+		     <div class="col col-75 feed_border_t feed_border_l"><textarea class="col">方便我们跟快向你反馈哦</textarea></div>
+	      </div>
+          
+	      </ion-item>
+      </ion-list>
+
+</ion-content>

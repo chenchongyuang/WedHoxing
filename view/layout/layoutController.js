@@ -1,0 +1,28 @@
+angular.module('app')
+   .controller('layoutController',['$scope',function($scope){
+   	$scope.footer=[{
+             on:'ion-ios-home',
+             off:'ion-ios-home-outline',
+             txt:'主页',
+             url:'layout.home'
+             
+  	   },
+  	   {
+             on:'ion-ios-albums',
+             off:'ion-ios-albums-outline',
+             txt:'产品',
+             url:'layout.product'
+  	   },
+  	   {
+             on:'ion-ios-cart',
+             off:'ion-ios-cart-outline',
+             txt:'购物车',
+             url:'layout.shopping'
+  	   },
+  	   {
+             on:'ion-ios-person',
+             off:'ion-ios-person-outline',
+             txt:'个人',
+             url:'layout.mine'
+  	   }]
+   }])

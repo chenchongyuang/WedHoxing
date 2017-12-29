@@ -1,0 +1,34 @@
+<div class="seo_order">
+		<ion-header-bar class="item-input-inset bar-balanced">
+		  <div class="button" ng-click="oPrev()">
+             <i class="icon ion-ios-arrow-left"></i>
+		  </div>
+		  
+		  <div class="item-input-wrapper">
+		     <input type="text" name="" />
+		  </div>
+		    <button class="button ">{{txt[0]}}</button>
+		</ion-header-bar>
+		<ion-content class="seo_order_conten">
+		   <div class="seo_title">
+		   		<h5>{{txt[1]}}</h5>
+		   </div>
+		      <ion-list>
+			      <div ng-repeat="key in order_product track by $index">
+				       <ion-item class="item-thumbnail-left" ng-click="click('product_deta')">
+				         <img ng-src="{{key.img}}" class="pro_img" />
+				         <div class="row">
+				            <div class="col col-67">
+					             <h2 class="order_deta">
+								          {{key.txt}}
+									    </h2>
+								    </div>
+								    <div class="col col-20 text-right">
+				               <span class="pink">{{key.reg}}</span>
+				               <p>{{key.sum}}</p>
+								    </div>
+				         </div>
+				       </ion-item>
+    </ion-list>
+		</ion-content>
+</div>

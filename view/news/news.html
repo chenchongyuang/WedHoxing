@@ -1,0 +1,51 @@
+<div class="news">
+    <ion-header-bar class="bar-balanced">
+	   <div class="button" ng-click="oPrev()">
+	      <i class="icon icon ion-ios-arrow-left" ></i>
+	      平台通知
+	   </div>
+	</ion-header-bar>
+    <ion-content class="news_bg">
+         <div class="row">
+             <div class="col col-33 text-center" ng-repeat="item in news_title track by $index" ng-click="index_click($index)" ng-class="{ 'border_bottom' :aIndex === $index }">{{item}}</div>
+         </div>
+         <ion-slide-box show-pager="{{slide.showPager}}" active-slide="aIndex">
+               <ion-slide>
+                    <div class="row">
+                         <div class="col news_img"><img src="./img/22222.png" class="full-image" /></div>
+                    </div>
+                    <div class="row"><div class="col text-center news_color">竟然一条消息都没有</div></div>
+               </ion-slide>
+               <ion-slide>
+                    <div class="row">
+                         <div class="col news_img"><img src="./img/22222.png" class="full-image" /></div>
+                    </div>
+                    <div class="row"><div class="col text-center news_color">竟然一条消息都没有</div></div>
+               </ion-slide>
+               <ion-slide>
+                    <ion-list>
+                      <div>
+                        <ion-item class="item-thumbnail-left">
+                             <img src="./img/product_img8.png" />
+                             <h2 class="order_deta">
+	                              苏泊尔（SUPOR）喷气式家用电熨斗
+																YD18A01A-12 五档控温蒸汽烫斗
+															</h2>
+															<div class="overflow"><span class="fr news_comment">有了新的评价</span></div>
+                        </ion-item>
+                        <div class="comment padding">
+                             <img src="./img/icon7.png" />    
+                             <span>dfdss</span>
+                             <div class="overflow news_time"><span class="fl">2017-09-04</span><span class="fr">颜色分类：蓝白</span></div>
+                             <div class="comment_txt">
+	                             <span>
+	                             			因为在南方天气潮湿，很小的时候就希望自己有一个电熨斗熨衣服！长大后喜欢穿衬衫了，真心觉得衣服皱皱巴巴的显得很旧，于是终于拿第一个月的工资买回了一个电熨斗！！！家里的电磁炉那些也是苏泊尔的，用着还可以.
+	                             </span>
+                             </div>
+                        </div>
+                      </div>
+                    </ion-list>
+               </ion-slide>
+         </ion-slide-box>
+    </ion-content>
+</div>

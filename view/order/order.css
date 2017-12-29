@@ -1,0 +1,141 @@
+.order>.product_deta_top{
+	position: relative;
+}
+.order>.order_deta_top .order_right{
+   position: absolute;
+   right: 10px;
+}
+.order>.order_right .button{
+	color:#ffffff;
+	border: none;
+	margin: 0 2px;
+	padding:2px;
+}
+.order .order_content{
+   background: #FFF;
+}
+.order .all_order_title{
+   color:#ff0255;
+   border-bottom:1px solid #ff0255; 
+}
+.order  .order_deta{
+	isplay: -webkit-box; 
+	white-space: normal;
+	-webkit-box-orient;
+	text-overflow: ellipsis; 
+	overflow : hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	font-size: 12px;
+}
+.order .all_order .pro_img{
+    border: 1px solid #eee;
+}
+.order .all_order .order_btn{
+   margin-top: 3px;
+   border-bottom:2px solid #e2e2e2; 
+}
+.order .all_order .order_btn button{
+	min-width: 60px;
+	min-height: 0; 
+	padding: 0 5px;
+	border: 1px solid #000;
+	line-height: 20px;
+	font-size: 12px;
+	border-radius: 4px;
+	background: #fff;
+}
+
+.order .order_img{
+   padding: 20px 110px;
+}
+.order .wait_payment_label{
+	margin-top: 45px;
+  width: 100%;
+}
+.order .wait_payment_label>.wait_payment_line{
+	width: 70%;
+	margin: 30px auto;
+	border-bottom:1px solid #979796;
+	position: relative; 
+}
+.order .wait_payment_line>span{
+    display: block;
+    width: 130px;
+    padding: 2px 8px;
+    height: 20px;
+    text-align:center;
+	line-height: 18px;
+    background:#FFF; 
+    color:#767676;
+    position: absolute;
+    top: -14px;
+    left: calc(50% - 73px);
+    font-size: 18px;
+}
+.order .wait_payment_line .line_icon{
+	font-size: 24px;
+	margin-right: 4px;
+    color:#ff0255;
+}
+.product_border{
+	border: 1px solid #d8d8d8;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+.product_text{
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.order .wait_evaluation .pro_img{
+    border: 1px solid #eee;
+}
+.order .wait_evaluation .order_btn{
+   margin-top: 3px;
+   border-bottom:2px solid #e2e2e2; 
+}
+.order .wait_evaluation .order_btn button{
+	min-width: 60px;
+	min-height: 0; 
+	padding: 0 5px;
+	border: 1px solid #000;
+	line-height: 20px;
+	font-size: 12px;
+	border-radius: 4px;
+}
+.order .wait_evaluation .evaluation_btn_bg{
+   background: #ff0255;
+   color:#fff;
+}
+.order .wait_evaluation .wait_payment_label>.wait_payment_line{
+	width: 70%;
+	margin: 30px auto;
+	border-bottom:1px solid #979796;
+	position: relative; 
+}
+.order .wait_evaluation .wait_payment_line>span{
+    display: block;
+    width: 130px;
+    padding: 2px 8px;
+    height: 20px;
+    text-align:center;
+	line-height: 18px;
+    background:#FFF; 
+    color:#767676;
+    position: absolute;
+    top: -14px;
+    left: calc(50% - 73px);
+    font-size: 18px;
+}
+.order .wait_evaluation .wait_payment_line .line_icon{
+	font-size: 24px;
+	margin-right: 4px;
+    color:#ff0255;
+}
+.order_border_bottom{
+	color:#ff0255;
+	border-bottom: 1px solid #ff0255;
+}

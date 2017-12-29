@@ -1,0 +1,73 @@
+
+<ion-header-bar align-title="center" class="bar bar-header bar-balanced">
+      <button class="button button-icon icon ion-ios-minus-outline"
+          ng-click="data.showDelete = !data.showDelete; data.showReorder = false"></button>
+     <h1 class="title">购物车<span>(5)</span></h1>
+
+</ion-header-bar>
+<ion-content class="margin_bottom shopping">
+  
+
+ <ion-list class="list" show-delete="data.showDelete" show-reorder="data.showReorder">
+       <ion-item ng-repeat="key in shopping track by $index" 
+                  item="item"
+                  class="item item-avatar item-remove-animate">
+  	      
+           	<div class="row">
+							<div class="col col-10 text-center"><input type="checkbox"  name="" ng-model="key.value" value="{{key.value}}"  class="checkbox" ng-change="che_click(key,key.value,$index)" /></div>
+						<div class="col col-90">
+
+						  <div class="row">
+	               <div class="col col-25">
+	                    <img ng-src="{{key.img}}" class="full-image" />
+	               </div>
+									
+			           <div class="col col-70 overflow">
+						          <span class="txt">{{key.txt}}</span>
+						      
+						          <div class="overflow fr padding">
+						          <span class="fl pink">{{key.reg}}</span>
+						          <span class="fr">{{key.sum}}</span>
+						          </div>
+						      </div>
+								 </div>
+					    </div>
+           	</div>
+          
+          <ion-delete-button class="ion-minus-circled" 
+                             ng-click="onItemDelete(key)">
+          </ion-delete-button>
+ 
+        </ion-item>
+      
+ </ion-list>
+ 
+ <div class="shopping_color">
+  
+     <div class="padding"><h3>猜你喜欢</h3></div>
+      <div class="row">
+		     <div class="col col-33" ng-repeat="item in shopping_product track by $index" ng-click="click()">
+		        <div class="padding background_color">
+		            <img ng-src="{{item.img}}" class="full-image" />
+		            <p class="product_text">{{item.txt}}</p>
+		            <div class="overflow">
+		            	<span class="fl pro_img">{{item.reg}}</span>
+		            	<span class="fr pro_img">{{item.omitted}}</span>
+		            </div>
+		        </div>
+		     </div>
+		  </div>
+   </div>
+   
+ </div>
+ 
+<div class="overflow padding">
+    <div class="fl overflow padding"><input class="fl sum_checkbox" type="checkbox" name="" ng-model="quanbu" value="{{quanbu}}" ng-click="jiayu(quanbu)"  /><span class="fl">全选</span></div>
+    <div class="fr overflow">
+    <div class="fl shopping_margin_top">合计:<span class="font_size">￥{{sum}}</span></div>
+    <div class="button button-bg">结算<span>（{{sum}}）</span></div>
+    </div>
+</div>
+</ion-content> 
+
+

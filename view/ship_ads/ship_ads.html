@@ -1,0 +1,53 @@
+<div class="ship_ads">
+
+	<ion-header-bar class="bar-balanced">
+	       <div class="button" ng-click="oPrev()">
+	           <i class="icon ion-ios-arrow-left"></i>
+	       </div>
+	       <h1 class="title">管理收货地址</h1>
+	       <div class="button" ng-click="click('e_address')">
+	          添加
+	       </div>
+	</ion-header-bar>
+
+	<ion-content class="margin_bottom">
+	   
+
+         <div class="text-center" ng-class="{'onOff' : Add_select.length >= 1 }">
+              <div>
+					<div class="row">
+	               <div class="col ship_ads_img">
+	                    <img src="./img/ship_ads_img1.png" class="full-image" />
+	               </div>
+	               
+	         </div>
+
+               <div class="row responsive-sm" ng-click="click('e_address')">
+                  <div class="col">
+                      <p>还没有收货地址哦</p>
+                  </div>
+                  <div class="col col-50">
+                      <div class="button button-balanced button-block">去添加</div>
+                  </div>   
+               </div>
+         </div>
+	   		</div>
+         <div class="address" ng-class="{'onOff' : Add_select.length <= 0 }" >
+              <div class="row" ng-repeat="key in Add_select track by $index" >
+                 <div class="col col-10"><input type="checkbox" name="" class="checkbox_Inp"></div>
+                 <div class="col col-90">
+                   <ion-list>
+                      <ion-item>
+                         <h4>收货人:{{key.name}}</h4>
+                         <p>手机:{{key.phone}}</p>
+                         <p>地址:{{key.address}},{{key.deta_address}}</p>
+                      </ion-item>
+                   </ion-list>
+                 </div>
+              </div>
+              <div class="button button-balanced button-block">确定</div>
+         </div>
+	</ion-content>
+
+</div>
+	

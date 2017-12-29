@@ -1,0 +1,32 @@
+<ion-header-bar class="bar-balanced">
+    <div class="button" ng-click="oPrev()">
+       <i class="{{icon[0]}}"></i>
+    </div>
+    <h1 class="title">{{title}}</h1>
+</ion-header-bar>
+<ion-content class="set">
+     <ion-list>
+        <ion-item class="item-button-right">
+           {{txt[0]}}
+            <div class="button" ng-click="click('about')">
+               <i class="{{icon[1]}}"></i>
+            </div>
+        </ion-item>
+        
+     </ion-list>
+         <ion-list>
+	         <ion-item>
+		          <div class="overflow">
+		            <span class="fl">
+		                {{txt[1]}}
+		            </span>
+		            <span class="fr">{{txt[2]}}</span>
+		          </div>
+	          </ion-item>
+         </ion-list>
+	 <div class="row responsive-sm text-center">
+		 <div class="col ">
+		 	<button class="button button-positive col-33">{{txt[3]}}</button>
+		 </div>
+	 </div>
+</ion-content>

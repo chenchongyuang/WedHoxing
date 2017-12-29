@@ -1,0 +1,20 @@
+.service{
+	background: #fff;
+}
+.service_foot .bar{
+ 	padding: 0;
+}
+.service_foot .bar>.row{
+   padding: 0;
+}
+.service_foot .bar .item{
+	margin: 4px 0;
+}
+.service_foot .service_txt{
+	padding: 0;
+	height: 34px;
+	font-size: 18px;
+}
+.service_foot .item-input input, .item-input textarea{
+    height: 100%;
+}

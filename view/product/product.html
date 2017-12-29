@@ -1,0 +1,46 @@
+<ion-view>
+<ion-header-bar class="bar-header item-input-inset bar-balanced ">
+         <div class="item-input-wrapper light-bg">
+             <input type="text" name="" placeholder="搜索" class="" />
+             <i class="icon ion-search placeholder-icon"></i>
+         </div>
+         <button class="button ">
+            <i class="icon ion-navicon-round"></i>
+         </button>
+</ion-header-bar>
+
+<ion-content class="margin_bottom">
+
+   <div class="row">
+       <div class="col col-33">
+           <ul class="list">
+               <div class="item item-divider">分类</div>
+               <li class="item" ng-repeat="key in cate_arr track by $index" ng-click="click_title($index)">{{key}}</li>
+           </ul>
+       </div>
+
+       <div class="col col-67 ">
+          <div><img src="./img/product_ads.png" class="full-image" /></div>
+          <div class="row row-wrap">
+              <div class="col col-90 col-offset-10">
+                <div class="border_bom">
+                   <span>{{title}}</span>
+                </div>
+              </div>
+          <div class="col col-50 cursor" ng-repeat="item in product track by $index">
+             <div class="product_border padding" ng-click="click(item.sref)">
+                         <img ng-src="{{item.img}}" class="full-image" />
+                         <p class="product_text">{{item.reg}}</p>
+                         <div class="overflow">
+                           <span class="fl pink">{{item.txt}}</span>
+                           <span class="fr pink">{{item.omitted}}</span>
+                         </div>
+             </div>
+           </div>
+            
+          </div>
+             </div> 
+       </div>
+   </div>
+</ion-content>
+</ion-view>

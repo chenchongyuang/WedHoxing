@@ -1,0 +1,116 @@
+<div class="product_deta">
+	<ion-header-bar class="product_deta_top overflow padding">
+	    <div class="button fl" ng-click="oPrev()">
+            <i class="icon ion-ios-arrow-left"></i>
+	    </div>
+         
+	    
+	    <div class="fr pro_deta_right">
+       <div class="button text-left">
+             <i class="icon ion-ios-cart"></i>
+	    </div>
+	    <div class="button">
+
+             <i class="icon ion-ios-more-outline"></i>
+	    </div>
+	    </div>
+	</ion-header-bar>
+	<ion-content class="margin_bottom">
+
+           
+        <ion-slide-box does-continue="{{slide.doesContinue}}" auto-play="slide.autoPlay" slide-interval="{{slide.intervalTime}}" show-pager="{{slide.showPager}}">
+		  <ion-slide ng-repeat="item in pro_banner track by $index">
+		   		<img ng-src="{{item.img}}" class="full-image" />
+		  </ion-slide>
+		</ion-slide-box>
+         
+         <div class="row responsive-sm">
+
+          <div class="col">
+               <p class="pro_deta_txt">{{title}}</p>
+          </div>
+
+          <div>
+	          <div class="row pro_deta_borde">
+	             <div class="padding">
+	                 <span class="pink pro_deta_reg">￥：89.00</span>
+	             </div>
+	             <div class="col col-33 pro_deta_reg2">
+                     <div class="pro_deta_org">￥：128<span></span></div>
+                     <span class="discount text-center">7折</span>
+	             </div>
+
+	          </div>
+               
+          </div>
+
+         </div>
+
+         <div class="row returns text-center"  ng-click="parameters_on(1)">
+            <div class="col col-33"><img src="./img/icon6.png" />48小时发货</div>
+            <div class="col col-33"><img src="./img/icon6.png" />7天无理由退货</div>
+            <div class="col col-33"><img src="./img/icon6.png" />退货补运费<i class="icon ion-ios-arrow-right fr cursor"></i></div>
+         </div>
+         <ion-list>
+             <ion-item class="item-icon-right select" ng-click="click('ship_ads')">
+                   配送至：地址
+                   <i class="icon ion-ios-arrow-right cursor"></i>
+             </ion-item>
+             <ion-item class="item-icon-right select"  ng-click="parameters_on(2)">
+                   产品参数
+                   <i class="icon ion-ios-arrow-right cursor" ></i>
+             </ion-item>
+         </ion-list>
+         
+         <div class="eva padding">
+	         <div class="eva_title">
+	             <span><i class="icon ion-ios-chatbubble-outline"></i> 评价</span>
+	         </div>
+
+	         <div ng-click="click('all_comment')" class="cursor">
+                <p>宝贝评价<span>（356）</span></p>
+                <div class="eva_class">
+                  <div>
+	                   <span>质量好(124)</span>
+	                   <span>快递不错(89)</span>
+	                   <span>划算(59)</span>
+                   </div>
+                   <div>
+                       <span>是正品(78)</span>
+	                   <span>性价比很高(46)</span>
+	                   <span class="bad_review">质量一般(28)</span>
+                   </div>
+                   
+                </div>
+	         </div>
+                
+	         <div class="pro_comment cursor" ng-click="click('all_comment')">
+                <div class="user">
+                    <img src="./img/icon7.png" />
+                    <span>小仙女i</span>
+                </div>
+                <div class="comment_txt">
+                     <p>因为在南方天气潮湿，很小的时候就希望自己有一个电熨斗熨衣服！长大后喜欢穿衬衫了，真心觉得衣服皱皱巴巴的显得很旧....</p>
+                     <div class="comment_time overflow">
+                       <span class="fl">2017-09-04</span>
+                       <span class="fr">颜色分类：蓝白</span>
+                     </div>
+                </div>
+	         </div>
+	         
+         </div>
+
+         <div class="details_img">
+            <div class="row responsive-sm">
+                <div class="col" ng-repeat="key in details_img track by $index">
+                  <img ng-src="{{key}}" class="full-image" />
+                </div>
+            </div>
+
+         </div>
+
+
+	</ion-content>
+  
+</div>
+

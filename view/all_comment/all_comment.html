@@ -1,0 +1,46 @@
+<div class="all_comment">
+    <ion-header-bar class="bar-balanced product_deta_top">
+      <div class="button fl" ng-click="oPrev()">
+            <i class="icon ion-ios-arrow-left"></i>
+      </div>
+         
+      <h1 class="title">商品全部评价</h1>
+      <div class="fr pro_deta_right">
+       <div class="button text-left">
+             <i class="icon ion-ios-cart"></i>
+      </div>
+      <div class="button">
+
+             <i class="icon ion-ios-more-outline"></i>
+      </div>
+      </div>
+    </ion-header-bar>
+    <ion-content class="margin_bottom">
+      <div class="pro_comment padding">
+        <div ng-repeat="key in all_comment track by $index">
+            <div class="user">
+                <img ng-src="{{key.avatar}}" />
+                <span>{{key.name}}</span>
+            </div>
+            <div class="comment_txt">
+                 <p>{{key.txt}}</p>
+                 <div class="comment_time overflow">
+                   <span class="fl">{{key.time}}</span>
+                   <span class="fr">{{key.style}}</span>
+                 </div>
+                 <div class="row row-wrap pro_eva_img">
+                     <div class="col col-33">
+                          <img ng-src="{{key.img1}}" class="full-image" />
+                     </div>
+                     <div class="col col-33">
+                          <img ng-src="{{key.img2}}" class="full-image" />
+                     </div>
+                     <div class="col col-33">
+                          <img ng-src="{{key.img3}}" class="full-image" />
+                     </div>
+                 </div>
+            </div>
+        </div>
+      </div>
+    </ion-content>
+</div>

@@ -1,0 +1,35 @@
+<div class="collection">
+	<ion-header-bar class="bar-balanced">
+	       <div class="button" ng-click="oPrev()">
+	             <i class="icon ion-ios-arrow-left"></i>
+	       </div>
+	       <h1 class="title">我的收藏</h1>
+	</ion-header-bar>
+	<ion-content class="collection_conten">
+	       <ion-list>
+		      <div ng-repeat="key in Evaluation track by $index">
+			       <ion-item class="item-thumbnail-left" ng-click="click('product_deta')">
+			         <img ng-src="{{key.img}}" class="pro_img" />
+			         <div class="row">
+			            <div class="col col-67">
+				             <h2 class="order_deta">
+							          {{key.txt}}
+								    </h2>
+							    </div>
+							    <div class="col col-20 text-right">
+			               <span class="pink">{{key.reg}}</span>
+			               <p>{{key.sum}}</p>
+							    </div>
+			         </div>
+			       </ion-item>
+			       <div class="order_btn text-center">
+		            <div class="row">
+		                 <div class="col col-20 col-offset-33"><button class="button">{{key.btn1}}</button></div>
+		                 <div class="col col-20"><button class="button evaluation_btn_bg">{{key.btn2}}</button></div>
+		                 <div class="col col-20"><button class="button" ng-click="delete(key)">{{key.btn3}}</button></div>
+		            </div>
+			       </div>
+		       </div>
+	    </ion-list>
+	</ion-content>
+</div>

@@ -1,0 +1,26 @@
+.pro_deta_footer .txt{
+	line-height: 12px;
+   font-size: 12px;
+}
+.pro_deta_footer .txt p{
+	margin::0;
+	padding: 0;
+}
+.pro_deta_footer .txt .icon_font {
+    font-size: 18px;
+}
+.pro_deta_footer .pro_shopping{
+   background: #fc47b6;
+   color:#FFF;
+   line-height: 40px;
+   height: 100%;
+}
+.pro_deta_footer .buy{
+   background: #ff0255;
+   color:#FFF;
+   line-height: 40px;
+   height: 100%;
+}
+.pro_deta_footer .row{
+   padding: 0;
+}

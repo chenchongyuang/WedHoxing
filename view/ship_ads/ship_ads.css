@@ -1,0 +1,13 @@
+.ship_ads .ship_ads_img{
+    padding: 20px 110px;
+}
+.ship_ads .onOff{
+   display: none;
+}
+.ship_ads .item{
+  padding: 4px;
+}
+.ship_ads .checkbox_Inp{
+   width: 30px;
+   margin: 28px auto;
+}

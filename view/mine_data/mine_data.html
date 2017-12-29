@@ -1,0 +1,81 @@
+<style type="text/css">
+    .mine_data {
+        margin: 0;
+        padding: 0;
+        -webkit-appearance: none; 
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-touch-callout: none;
+        box-sizing: border-box;
+    }
+    
+    .mine_data html,
+    body {
+        margin: 0 auto;
+        width: 100%;
+        min-height: 100%;
+        overflow-x: hidden;
+        -webkit-user-select: none;
+    }
+    
+    .mine_data body {
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        -webkit-text-size-adjust: 100%; 
+        -webkit-overflow-scrolling: touch;
+        overflow-scrolling: touch;
+    }
+    
+    .mine_data input {
+        width: 90%;
+        height: 40px;
+        font-size: 18px;
+        border: 1px solid #b72f20;
+        border-radius: 5px;
+        padding: 5px;
+        margin-left: 10px;
+    }
+    .mine_data .aa{
+        display: none;
+    }
+    .mine_data input[type=text]{
+       display: inline;
+    }
+    
+    </style>
+<div class="mine_data">
+      <ion-header-bar class="bar-balanced">
+          <div class="button" ng-click="oPrev()">
+               <i class="icon ion-ios-arrow-left"></i>
+          </div>
+          <h1 class="title">我的资料</h1>
+      </ion-header-bar>
+      <ion-content class="mine_data_center">
+           <ion-list class="list">
+              <ion-item class="item item-thumbnail-right">
+               <img src="./img/mine_img2.png" />
+                  <span class="title_data">头像</span>
+              </ion-item>
+              <ion-item class="item item-button-right overflow" ng-click="name()">
+                  <span class="">昵称</span>
+                  <span class="fr">{{data.wifi}}</span>
+              </ion-item>
+              <ion-item class="item item-button-right overflow" ng-click="ger()">
+                  <span class="">性别</span>
+                  <span class="fr">{{data.ger}}</span>
+              </ion-item>
+              <ion-item class="item item-button-right">
+                   <io-city></io-city>
+              </ion-item>
+              <ion-item class="item item-button-right">
+                  <span class="" id="aa">生日</span>
+                  <div class="button" ng-click="on()">
+                     {{data.birthday}}&nbsp;
+                     <i class="icon ion-ios-arrow-right"></i>
+                     
+                  </div>
+              </ion-item>
+
+           </ion-list>
+         
+      </ion-content>
+       
+</div>

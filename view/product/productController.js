@@ -1,0 +1,47 @@
+angular.module('app')
+  .controller('productController',['$scope','$location',function($scope,$location){
+    $scope.click=function(url){
+            $location.path(url);
+    };
+    $scope.title='挂烫机';
+      
+  	  $scope.cate_arr=['挂烫机','电熨斗','电熨斗','电吹风','加湿器','电水壶','足浴盆','面包机','蛋糕机','电饭煲','电蒸锅','空气炸锅','毛球修剪器'];
+  	  $scope.product_arr=[
+      [{
+              img:'./img/product_img2.png',
+              reg:'手持式吸尘器',
+              txt:'￥425',
+              omitted:'...',
+              sref:'product_deta'
+  	  },
+  	  {
+              img:'./img/product_img3.png',
+              reg:'大功率电吹风机',
+              txt:'￥198',
+              omitted:'...',
+              sref:'product_deta'
+  	  },
+  	  {
+              img:'./img/product_img11.png',
+              reg:'电熨斗',
+              txt:'￥138',
+              omitted:'...',
+              sref:'product_deta'
+  	  },
+  	  {
+              img:'./img/product_img12.png',
+              reg:'可爱热水壶',
+              txt:'￥82',
+              omitted:'...',
+              sref:'product_deta'
+  	  }]
+      ];
+
+      $scope.product=$scope.product_arr[0];
+
+      $scope.click_title=function(index){
+          $scope.title=$scope.cate_arr[index];
+          $scope.product=$scope.product_arr[index];
+          console.log($scope.product);
+      }
+  }])

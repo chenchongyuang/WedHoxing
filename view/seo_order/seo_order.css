@@ -1,0 +1,44 @@
+.seo_order{
+	background: #FFF;
+}
+.seo_order .seo_order_conten{
+	background: #FFF;
+}
+.seo_order .order_deta{
+	isplay: -webkit-box; 
+	white-space: normal;
+	-webkit-box-orient;
+	text-overflow: ellipsis; 
+	overflow : hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	font-size: 12px;
+}
+.seo_order .pro_img{
+    border: 1px solid #fff;
+    color:#eee;
+}
+.seo_order .order_btn{
+   margin-top: 3px;
+   border-bottom:2px solid #e2e2e2; 
+}
+.seo_order .order_btn button{
+	min-width: 60px;
+	min-height: 0; 
+	padding: 0 5px;
+	border: 1px solid #000;
+	line-height: 20px;
+	font-size: 12px;
+	border-radius: 4px;
+	background: #fff;
+}
+.seo_title{
+	width: 100%;
+	background: #fff;
+	padding: 5px 10px;
+}
+.seo_order .item-input-wrapper{
+    background: #fff;
+}

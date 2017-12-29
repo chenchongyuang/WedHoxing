@@ -1,0 +1,98 @@
+<link rel="stylesheet" type="text/css" href="./view/pro_detaLayout/buymodal.css" />
+<ion-modal-view class="buy">
+      <div class="buy_bg">
+           <div class="buy_product">
+
+               <div class="pru_img"><img ng-src="{{pro_img[0]}}" /></div>
+               <div class="pru_txt">
+                  <span class="buy_reg">{{reg}}</span>
+                  <p>库存354件</p>
+                  <p>已选：”{{selected}}“</p>
+                  <img src="./img/ionic9.png" class="cursor" ng-click="buy_off()" />
+               </div>
+
+               <div class="over_y">
+                  <ion-list class="distributio">
+                  <ion-item class="item-button-right distributio_select" ng-click="click1('ship_ads')">
+                      <span class="dis_title">配送区域</span><span class="remind">(配送地可能会影响库存，请正确选择）</span>
+                      <p><i class="icon ion-ios-location-outline"></i>{{city}}</p>
+                      <button class="button diz">
+                         <i class="icon ion-ios-arrow-right"></i>
+                      </button>
+                  </ion-item>
+                  <ion-item class="title_txt_padd">
+                         <div class="row">
+                            <div class="col">
+                                <span class="title_txt">{{title}}</span>
+                            </div>
+                         </div>
+                  </ion-item>
+                  <ion-item class="item-button-right pro_select">
+                      <h4 class="dis_title">颜色分类</h4>
+                      <p ng-repeat="key in fenlei track by $index"  ng-class="{ 'xz': aIndex === $index }" ng-click="xzhong($index)">{{key.txt}}</p>
+                  </ion-item>
+                  
+                  <ion-item class="item-button-right pro_select">
+                     <div class="overflow">
+                        <div class="fl">
+                           <span class="dis_title">购买数量</span>
+                           <span class="remind2">(限购五件）</span>
+                        </div>
+                        <div class="fr text-right">
+                           <span class="add_cut" ng-click="less()">-</span>
+                           <span>{{quan}}</span>
+                           <span class="add_cut" ng-click="puls()">+</span>
+                        </div>
+                     </div>
+                  </ion-item>
+
+                  <ion-item class="item-button-right service">
+                      <h4 class="dis_title">特色服务</h4>
+                       <ul>
+                          <li>
+                             <span class="fl">全国联保</span>
+                             <div class="fr">
+                               <span>[商家赠送]</span><input type="checkbox" name="" class="checkbox_buy">
+                             </div>
+                          </li>
+
+                          <li>
+                             <span class="fl">延保2年</span>
+                             <div class="fr">
+                                <span class="pink">￥17.8</span><input type="checkbox" name="" class="checkbox_buy">
+                             </div>
+                          </li>
+
+                          <li>
+                             <span class="fl">延保1年</span>
+                             <div class="fr">
+                               <span class="pink">￥11.8</span><input type="checkbox" name="" class="checkbox_buy">
+                             </div>
+                          </li>
+
+                          <li>
+                             <span class="fl">延保3年</span>
+                             <div class="fr">
+                               <span class="pink">￥22.8</span><input type="checkbox" name="" class="checkbox_buy">
+                             </div>
+                          </li>
+                       </ul>
+                  </ion-item>
+                 </ion-list>
+
+               </div>
+               
+               
+           </div>
+      </div>
+  <ion-tabs class="footer_buy">
+     <div class="row">
+       <div class="col col-50 text-center footer1" ng-click="join()">
+           加入购物车
+       </div>
+       <div class="col col-50 text-center footer2" ng-click="buy()">
+           立即购买
+       </div>
+     </div>
+  </ion-tabs>
+</ion-modal-view>

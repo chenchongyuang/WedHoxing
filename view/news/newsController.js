@@ -1,0 +1,15 @@
+angular.module('app')
+  .controller('newsController',['$scope','$ionicSlideBoxDelegate',function($scope,$ionicSlideBoxDelegate){
+  	  $scope.oPrev=function(){
+  	  	window.history.go(-1);
+  	  };
+      $scope.slide={
+        showPager:false
+      }
+  	  $scope.news_title=['交易物流','通知','互动'];
+  	  $scope.aIndex=0;
+  	  $scope.index_click=function(index){
+  	  	$scope.aIndex=index;
+        $ionicSlideBoxDelegate.slide($scope.aIndex);
+  	  }
+  }])

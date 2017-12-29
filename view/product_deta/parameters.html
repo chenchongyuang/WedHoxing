@@ -1,0 +1,121 @@
+<style type="text/css">
+.parameters{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.5);
+    z-index: 10;
+}
+.parameters .parameters_txt{
+   height: 70%;
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   background: #FFF;
+   width: 100%;
+   margin-bottom: 30px;
+}
+.parameters_txt .product_name{
+   display: block;
+   width: 100px;
+   font-size: 14px;
+   white-space:normal;
+   font-weight: bold;
+} 
+.modal{
+  background: none;
+  background: rgba(0,0,0,.5);
+}
+.parameters_txt .item{
+   padding: 0;
+
+}
+.parameters_foot .button.button-block, .button.button-full{
+  margin-top: 0;
+}
+.parameters_txt .parameters_txt2{
+   height: 90%;
+   overflow-y:auto; 
+}
+.id1{
+  display: none;
+}
+.description{
+    width: 100%;
+    height: 80%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: #FFF;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-bottom: 50px;
+}
+.description .item p{
+    white-space: normal;
+}
+.description .description_title{
+   color:#ff0255;
+   font-size: 16px;
+}
+</style>
+<ion-modal-view>
+
+
+
+  <div class="parameters" ng-class="{id1 : index == id[0] }">
+              <div class="parameters_txt ">
+                 <h4 class="text-center">{{parameters_title}}</h4>
+
+               <div class="parameters_txt2">
+                   <ion-list class="padding ">
+                    <ion-item ng-repeat="key in parameters track by $index">
+                       <div class="row">
+                          <div class="col col-20">
+                             <span class="product_name">{{key.name}}</span>
+                          </div>
+                          <div class="col col-offset-10 col-67 text-center">{{key.txt}}</div>
+                       </div>
+                      
+                    </ion-item>
+                 </ion-list>
+               </div>
+
+             </div>
+            
+        </div>
+  <div ng-class="{id1: index == id[1] }" class="description">
+       <div>
+           <div class="row">
+               <div class="col text-center description_title">红心品牌商城</div>
+           </div>
+           <ion-list>
+              <ion-item class="item-avatar" ng-repeat="key in modal1 track by $index">
+                   <img ng-src="{{key.img}}" />
+                   <h3>{{key.title}}</h3>
+                   <p>{{key.txt}}</p>
+              </ion-item>
+           </ion-list>
+      </div> 
+      <div>
+           <div class="row">
+               <div class="col text-center description_title">基础服务</div>
+           </div>
+           <ion-list>
+              <ion-item class="item-avatar" ng-repeat="key in modal1_2 track by $index">
+                   <img ng-src="{{key.img}}" />
+                   <h3>{{key.title}}</h3>
+                   <p>{{key.txt}}</p>
+              </ion-item>
+           </ion-list>
+      </div> 
+  </div>
+        
+
+
+   
+      <ion-tabs class="parameters_foot">
+          <button class="button button-positive button-block" ng-click="closeComment()">完成</button> 
+      </ion-tabs>
+   
+   
+</ion-modal-view>

@@ -1,0 +1,10 @@
+.enter{
+	position: relative;
+}
+.enter .page_img{
+   width: 200px;
+   height: 45px;
+   position: absolute;
+   top: calc(100% - 25%);
+   left: calc(50% - 100px);
+}

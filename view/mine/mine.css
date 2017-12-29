@@ -1,0 +1,57 @@
+.mine{
+	background: url('../../img/mine_img1.png') no-repeat 0 0;
+	background-size:100% 100%; 
+}
+.mine .mine_avatar{
+	color:#FFF;
+}
+.mine .mine_avatar .item{
+   background: none;
+   border: none;
+}
+.mine .mine_avatar .item>p{
+   color:#FFF;
+   text-align: left;
+}
+.mine .mine_news_color{
+	color:#FFF;
+	font-size: 16px;
+}
+.mine .mine_font_size{
+   font-size: 30px; 
+   margin-right: 5px;
+}
+@media (max-width: 567px){
+.mine, .responsive-sm .col, .responsive-sm .col-10, .responsive-sm .col-20, .responsive-sm .col-25, .responsive-sm .col-33, .responsive-sm .col-34, .responsive-sm .col-50, .responsive-sm .col-66, .responsive-sm .col-67, .responsive-sm .col-75, .responsive-sm .col-80, .responsive-sm .col-90{
+	margin-bottom: 0;
+ }
+}
+.mine_border_bottom{
+   border-bottom: 1px solid #eee;
+   line-height: 24px;
+}
+.mine_border_bottom span:nth-child(2){
+	cursor: pointer;
+}
+.mine_order{
+	font-size: 16px;
+	color:#5d5d5d;
+}
+.mine_order .mine_order_icon{
+   font-size: 30px;
+}
+.mine_order_border{
+	border-bottom: 3px solid #e2e2e2;
+	padding-bottom: 0 !important;
+	margin-bottom: 0 !important;
+}
+.list_icon_font{
+	font-size: 24px;
+	margin-right: 10px;
+}
+.mine_order .item-button-right > .button{
+    top: 0px;
+}
+.mine .item-button-right > .button{
+    top: 0px;
+}

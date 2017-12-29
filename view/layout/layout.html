@@ -1,0 +1,7 @@
+
+   <!--二级路由-->
+   <ion-nav-view></ion-nav-view>
+   
+<ion-tabs class="tabs-icon-top tabs-balanced">
+    	 	<ion-tab ng-repeat="item in footer" title="{{item.txt}}" icon-on="{{item.on}}" icon-off="{{item.off}}" ui-sref="{{item.url}}"></ion-tab>
+</ion-tabs>

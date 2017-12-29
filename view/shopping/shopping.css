@@ -1,0 +1,59 @@
+
+ .shopping .pink{
+	color:#ff0255;
+	padding-right: 20px;
+}
+.txt{
+	display: block;
+	overflow:hidden; 
+	text-overflow:ellipsis; 
+	white-space:nowrap; 
+	-webkit-line-clamp:2; 
+}
+.shopping .item-avatar, .item-avatar .item-content, .item-avatar-left, .item-avatar-left .item-content{
+	padding: 0;
+}
+.shopping>input[type=radio], input[type=checkbox]{
+	margin-top: calc(100%);
+}
+ .item-content{
+	padding: 0;
+}
+.shopping_img{
+    width: 80px;
+}
+ .checkbox{
+   width: 20px;
+   height: 20px;
+   
+}
+ .shopping_color{
+	background:#e5e3e3;
+}
+ .background_color{
+  background: #fff;
+  border-radius: 5px;
+}
+.pro_img{
+	color:#ff0255;
+	
+}
+.product_text{
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.sum_checkbox{
+    width: 20px;
+    height: 20px;
+	margin:2px !important;
+}
+.shopping .button-bg{
+   background: #ff0255;
+}
+.shopping .font_size{
+   color:#ff0255;
+}
+.shopping .shopping_margin_top{
+  margin: 10px;
+}
