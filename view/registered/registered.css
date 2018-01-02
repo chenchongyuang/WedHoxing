@@ -36,3 +36,15 @@
 	top: -10px;
 	left: 67px;
 }
+.login .position_r{
+    position: relative;
+}
+.login .btn1{
+	width: 150px;
+	z-index: 20;
+	min-height: 42px;
+	position: absolute;
+	top: 2px;
+	right: 10px;
+	color:#FFF;
+}
