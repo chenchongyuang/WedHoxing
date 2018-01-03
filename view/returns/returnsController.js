@@ -1,5 +1,5 @@
 angular.module('app')
- .controller('returnsController',['$scope','$state',function($scope,$state){
+ .controller('returnsController',['$scope','$state','$ionicSlideBoxDelegate',function($scope,$state,$ionicSlideBoxDelegate){
  	$scope.oPrev=function(){
  		window.history.go(-1);
  	};
@@ -8,7 +8,8 @@ angular.module('app')
  	};
  	$scope.click_index=function(index){
         $scope.aIndex=index;
-        console.log(1);
+        $ionicSlideBoxDelegate.slide($scope.aIndex);
+        
  	} 
  	$scope.aIndex=0;
  	$scope.title=[{

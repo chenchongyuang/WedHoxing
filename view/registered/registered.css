@@ -4,16 +4,10 @@
 	background: #FFF;
 }
 .login .login_logo{
-	width: 100%;
-	text-align: center;
-	margin-bottom: 30px;
+    padding: 20px 110px;
 }
-.login .login_logo img{
-   width: 40%;
-   height: 10%;
-   margin: 20px auto;
-}
-.login .login_logo>p{
+
+.login .logo_title{
 	color:#ff0255;
 	font-size: 20px;
 	font-weight: bold;

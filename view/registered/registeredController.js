@@ -1,5 +1,5 @@
 angular.module('app')
-   .controller('registeredController',['$scope','API','$ionicPopup','formatTime','tip',function($scope,API,$ionicPopup,formatTime,tip){
+   .controller('registeredController',['$scope','API','$ionicPopup','formatTime','tip','$state',function($scope,API,$ionicPopup,formatTime,tip,$state){
         $scope.arr={
           phone:'',
           name_length:'',
@@ -84,6 +84,10 @@ angular.module('app')
             console.log(data);
             if(data.data.statusCode == 201){
               $scope.prompt_box(data.data.msg);
+            }else if(data.data.statusCode == 255){
+              $scope.prompt_box(data.data.msg);
+            }else if(data.data.statusCode == 200){
+              $state.go('login');
             }
            tip.loadTips.hideLoading();
            }))
