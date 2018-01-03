@@ -9,19 +9,19 @@
          </div>
         <div class="list overflow padding">
             <label class="item item-input">
-               <input type="text" name="" placeholder="请输入手机号码" ng-model="arr.phone" value="arr.phone" />
+               <input type="text" name="" placeholder="请输入手机号码" ng-model="arr.phone"  />
             </label>
             <label class="item item-input">
-               <input type="text" name="" placeholder="请输入昵称" ng-model="arr.name_length" value="arr.name_length" />
+               <input type="text" name="" placeholder="请输入昵称" ng-model="arr.name_length"  />
             </label>
             <label class="item item-input">
-               <input type="password" name="" placeholder="请输入密码" ng-model="arr.pwd" value="arr.pwd" />
+               <input type="password" name="" placeholder="请输入密码" ng-model="arr.pwd"  />
             </label>
             <div class="position_r">
             <label class="item item-input position_r">
-               <input type="text" name="" placeholder="请输入验证码" ng-model="arr.code_value" value="arr.code_value" />
+               <input type="text" name="" placeholder="请输入验证码" ng-model="arr.code_value" />
             </label>
-            <button class="button button-positive  btn1" ng-click="getCode()">获取验证码</button>
+            <button class="button button-positive  btn1" ng-click="getCode()" ng-disabled="arr.disabled">获取验证码&nbsp;<span ng-class="{ 'Countdown_on':arr.disabled === arr.index}">{{arr.Countdown}} s</span></button>
             </div>
             <button class="button button-assertive button-block" ng-click="get_fn()">注册</button>
            

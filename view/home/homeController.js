@@ -1,8 +1,16 @@
 angular.module('app')
-  .controller('homeController',['$scope','$state',function($scope,$state){
+  .controller('homeController',['$scope','$state','API',function($scope,$state,API){
        $scope.click=function(){
           $state.go('pro_detaLayout.product_deta');
        };
+       $scope.abvImg=null;
+       API.fetchGet('http://127.0.0.1:9000/home')
+       .then(function(data){
+           console.log(data);
+       })
+       .catch(function(err){
+           console.log(err);
+       })
   	   $scope.obj=[{
            img:'./img/product_img1',
            txt:'干湿两用电熨斗',

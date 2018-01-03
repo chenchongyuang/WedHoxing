@@ -1,9 +1,10 @@
 angular.module('app')
- .controller('loginController',['$scope','$http','API','tip','$state','$ionicPopup',function($scope,$http,API,tip,$state,$ionicPopup){
+ .controller('loginController',['$scope','$http','API','tip','$state','$ionicPopup','$rootScope',function($scope,$http,API,tip,$state,$ionicPopup,$rootScope){
+      
      $scope.login={
-     	phone:'',
-     	pwd:''
-     }
+	     	phone:'',
+	     	pwd:''
+	     }
      $scope.reg = /^1[35678]\d{9}$/;
       //提示框
      $scope.prompt_box=function(name){
@@ -26,18 +27,23 @@ angular.module('app')
 	     	}else{
 	     		     tip.loadTips.showLoading();
 		     		   API.fetchGet('http://127.0.0.1:9000/login',$scope.login)
-		           .then((function(data){
-		                if(data.data.statusCode == 201){
-		                	tip.loadTips.hideLoading();
-		                	$scope.prompt_box(data.data.msg);
-		                }else if(data.data.statusCode == 255){
-		                	tip.loadTips.hideLoading();
-		                	$scope.prompt_box(data.data.msg);
-		                }else if(data.data.statusCode == 200){
-		                	tip.loadTips.hideLoading();
-		                	$state.go('layout.home');
-		                }
-		           }))
+				           .then((function(data){
+				                if(data.data.statusCode == 201){
+				                	tip.loadTips.hideLoading();
+				                	$scope.prompt_box(data.data.msg);
+				                }else if(data.data.statusCode == 255){
+				                	tip.loadTips.hideLoading();
+				                	$scope.prompt_box(data.data.msg);
+				                }else if(data.data.statusCode == 200){
+				                	$rootScope.userInfo.phone = data.data.phone;
+				                	$rootScope.userInfo.uname = data.data.uname;
+				                	$rootScope.userInfo.isLogin = true;
+				                	tip.loadTips.hideLoading();
+				                	console.log($rootScope.userInfo);
+				                	console.log(data);
+				                	$state.go('layout.home');
+				                }
+				           }))
 	     	}
      }
 }])

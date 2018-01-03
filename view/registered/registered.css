@@ -42,3 +42,6 @@
 	right: 10px;
 	color:#FFF;
 }
+.login .Countdown_on{
+   display: none;
+}
