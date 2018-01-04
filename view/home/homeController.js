@@ -4,17 +4,20 @@ angular.module('app')
           $state.go('pro_detaLayout.product_deta');
        };
        $scope.abvImg=null;
+       $scope.home_title=null;
        API.fetchGet('http://127.0.0.1:9000/home')
        .then(function(data){
-           console.log(data);
+           $scope.abvImg=data.data.abvImg;
+           $scope.home_title=data.data.category;
+           console.log($scope.home_title);
        })
        .catch(function(err){
            console.log(err);
        })
   	   $scope.obj=[{
-           img:'./img/product_img1',
-           txt:'干湿两用电熨斗',
-           reg:'￥139',
+           img:'./img/product_img1.png',
+           txt:'',
+           reg:'',
            omitted:'...'
   	   },
   	   {
@@ -86,26 +89,7 @@ angular.module('app')
            reg:'￥82',
            omitted:'...'
   	   }];
-     $scope.home_title=[{
-            img:'./img/icon.png',
-            txt:'熨烫电器'
-     },
-     {
-            img:'./img/icon1.png',
-            txt:'个人护理'
-     },
-     {
-            img:'./img/icon2.png',
-            txt:'生活电器'
-     },
-     {
-            img:'./img/icon3.png',
-            txt:'西式电器'
-     },
-     {
-            img:'./img/icon4.png',
-            txt:'西式电器'
-     }]
+     
   	   
 
 

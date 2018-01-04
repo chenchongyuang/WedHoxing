@@ -44,6 +44,9 @@ angular.module('app')
 				                	$state.go('layout.home');
 				                }
 				           }))
+				           .catch(function(err){
+				           	   console.log('请求失败');
+				           })
 	     	}
      }
 }])

@@ -11,13 +11,13 @@
 <ion-content class="margin_bottom">
      
         <div>
-           <img ng-src="{{abvImg[0]}}" class="full-image" />
+           <img ng-src="{{abvImg[0].ad_code}}" class="full-image" />
         </div>
 
         <div class="row icon_title text-center">
            <div class="col col-20" ng-repeat="key in home_title track by $index" >
-               <img ng-src="{{key.img}}" class="full-image" />
-               <p>{{key.txt}}</p>
+               <img ng-src="{{key.image}}" class="full-image" />
+               <p>{{key.name}}</p>
            </div>
         </div>
         
@@ -55,7 +55,7 @@
 	              </div>
             </div>
 
-            <div><img ng-src="{{abvImg[1]}}" class="full-image" /></div>
+            <div><img ng-src="{{abvImg[1].ad_code}}" class="full-image" /></div>
 
             <div>
               <h4 class="text-center col col-100">掌柜推荐</h4>
