@@ -37,7 +37,7 @@ angular.module('app')
                   return 	'请输入有效手机号码';
          		}else{
                   tip.loadTips.showLoading();
-    		       		API.fetchGet('http://127.0.0.1:9000/message',{phone:$scope.arr.phone})
+    		       		API.fetchPost('http://127.0.0.1:9000/message',{phone:$scope.arr.phone})
     			       	.then((function(data){
     			       		$scope.code=data.data.code;
                     console.log(data);
@@ -103,7 +103,7 @@ angular.module('app')
                   
                     $scope.arr.Time=formatTime.format(new Date(),'yyyy-MM-dd hh:mm:ss');
                     tip.loadTips.showLoading();
-                    API.fetchGet('http://127.0.0.1:9000/register',$scope.arr)
+                    API.fetchPost('http://127.0.0.1:9000/register',$scope.arr)
                      .then((function(data){
                       console.log(data);
                       if(data.data.statusCode == 201){

@@ -26,13 +26,13 @@
             <div>
               <h4 class="text-center col col-100">最新上架</h4>
               <div class="row"> 
-	               <div class="col col-33" ng-repeat="item in obj" ng-click="click()">
+	               <div class="col col-33" ng-repeat="item in product.class001" ng-click="click(item.pid)">
 	                 <div class="padding product_border">
-	                  <img ng-src="{{item.img}}" class="full-image" />
-	                  <p class="product_text">{{item.txt}}</p>
+	                  <img ng-src="{{item.pimage}}" class="full-image" />
+	                  <p class="product_text">{{item.goods_name}}</p>
 	                  <div class="overflow">
-	                  	<span class="fl pink">{{item.reg}}</span>
-	                  	<span class="fr pink">{{item.omitted}}</span>
+	                  	<span class="fl pink">{{item.market_price}}</span>
+	                  	<span class="fr pink">{{item.ellipsis}}</span>
 	                  </div>
 	                 </div>
 	               </div>
@@ -42,13 +42,13 @@
             <div>
               <h4 class="text-center col col-100">热销爆品</h4>
               <div class="row"> 
-	               <div class="col col-33" ng-repeat="item in obj2" ng-click="click()">
+	               <div class="col col-33" ng-repeat="item in product.class002" ng-click="click(item.pid)">
 	                 <div class="padding product_border">
-	                  <img ng-src="{{item.img}}" class="full-image" />
-	                  <p class="product_text">{{item.txt}}</p>
+	                  <img ng-src="{{item.pimage}}" class="full-image" />
+	                  <p class="product_text">{{item.goods_name}}</p>
 	                  <div class="overflow">
-	                  	<span class="fl pink">{{item.reg}}</span>
-	                  	<span class="fr pink">{{item.omitted}}</span>
+	                  	<span class="fl pink">{{item.market_price}}</span>
+	                  	<span class="fr pink">{{item.ellipsis}}</span>
 	                  </div>
 	                 </div>
 	               </div>
@@ -60,13 +60,13 @@
             <div>
               <h4 class="text-center col col-100">掌柜推荐</h4>
               <div class="row"> 
-	               <div class="col col-33" ng-repeat="item in obj3" ng-click="click()">
+	               <div class="col col-33" ng-repeat="item in product.class003" ng-click="click(item.pid)">
 	                 <div class="padding product_border">
-	                  <img ng-src="{{item.img}}" class="full-image" />
-	                  <p class="product_text">{{item.txt}}</p>
+	                  <img ng-src="{{item.pimage}}" class="full-image" />
+	                  <p class="product_text">{{item.goods_name}}</p>
 	                  <div class="overflow">
-	                  	<span class="fl pink">{{item.reg}}</span>
-	                  	<span class="fr pink">{{item.omitted}}</span>
+	                  	<span class="fl pink">{{item.market_price}}</span>
+	                  	<span class="fr pink">{{item.ellipsis}}</span>
 	                  </div>
 	                 </div>
 	               </div>
@@ -76,13 +76,13 @@
              <div>
               <h4 class="text-center col col-100">每日优品</h4>
               <div class="row"> 
-	               <div class="col col-33" ng-repeat="item in obj4" ng-click="click()">
+	               <div class="col col-33" ng-repeat="item in product.class004" ng-click="click(item.pid)">
 	                 <div class="padding product_border">
-	                  <img ng-src="{{item.img}}" class="full-image" />
-	                  <p class="product_text">{{item.txt}}</p>
+	                  <img ng-src="{{item.pimage}}" class="full-image" />
+	                  <p class="product_text">{{item.goods_name}}</p>
 	                  <div class="overflow">
-	                  	<span class="fl pink">{{item.reg}}</span>
-	                  	<span class="fr pink">{{item.omitted}}</span>
+	                  	<span class="fl pink">{{item.market_price}}</span>
+	                  	<span class="fr pink">{{item.ellipsis}}</span>
 	                  </div>
 	                 </div>
 	               </div>

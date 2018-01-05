@@ -26,7 +26,7 @@ angular.module('app')
                 return false;
 	     	}else{
 	     		     tip.loadTips.showLoading();
-		     		   API.fetchGet('http://127.0.0.1:9000/login',$scope.login)
+		     		   API.fetchPost('http://127.0.0.1:9000/login',$scope.login)
 				           .then((function(data){
 				                if(data.data.statusCode == 201){
 				                	tip.loadTips.hideLoading();

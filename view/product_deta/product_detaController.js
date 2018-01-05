@@ -1,5 +1,5 @@
 angular.module('app')
-   .controller('product_detaController',['$scope','$ionicSlideBoxDelegate','$location','parameters_modal',function($scope,$ionicSlideBoxDelegate,$location,parameters_modal){
+   .controller('product_detaController',['$scope','$ionicSlideBoxDelegate','$location','parameters_modal','$stateParams','API',function($scope,$ionicSlideBoxDelegate,$location,parameters_modal,$stateParams,API){
     
     //轮播图
     $scope.slide = {
@@ -8,9 +8,17 @@ angular.module('app')
             intervalTime: 2000,
             showPager: true
         };
-    $scope.title='苏泊尔（SUPOR）喷气式家用电熨斗YD18A01A-12 五档控温蒸汽烫斗';
+     $scope.title='苏泊尔（SUPOR）喷气式家用电熨斗YD18A01A-12 五档控温蒸汽烫斗';
      $scope.id=['id1','id2'];
      $scope.index=null;
+
+     API.fetchGet('http://127.0.0.1:9000/product_data',$stateParams.id)
+       .then(function(data){
+           console.log(data);
+       })
+       .catch(function(err){
+        console.log(err);
+       })
     //-----------------
     //
     //模态产品参数页----

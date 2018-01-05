@@ -8,7 +8,13 @@ angular.module('app')
   				url:url,
   				params:params
   			})
-  			
-  		}
+  		},
+      fetchPost:function(url,data){
+        return $http({
+          method:'POST',
+          url:url,
+          data:data
+        })
+      }
   	}
   }])
