@@ -21,6 +21,9 @@
 	 width: 100%;
 	}
 .buy .buy_product .over_y{
+   position:absolute;
+   bottom: 0;
+   left: 0; 
 	 height: 70%;
 	 overflow-y: auto;
    overflow-x: hidden;

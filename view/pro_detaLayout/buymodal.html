@@ -3,10 +3,10 @@
       <div class="buy_bg">
            <div class="buy_product">
 
-               <div class="pru_img"><img ng-src="{{pro_img[0]}}" /></div>
+               <div class="pru_img"><img ng-src="{{pro_layout.pro_img}}" /></div>
                <div class="pru_txt">
-                  <span class="buy_reg">{{reg}}</span>
-                  <p>库存354件</p>
+                  <span class="buy_reg">&yen;{{pro_layout.reg}}</span>
+                  <p>库存{{pro_layout.store_count}}件</p>
                   <p>已选：”{{selected}}“</p>
                   <img src="./img/ionic9.png" class="cursor" ng-click="buy_off()" />
                </div>
@@ -23,7 +23,7 @@
                   <ion-item class="title_txt_padd">
                          <div class="row">
                             <div class="col">
-                                <span class="title_txt">{{title}}</span>
+                                <span class="title_txt">{{pro_layout.title}}</span>
                             </div>
                          </div>
                   </ion-item>
@@ -40,7 +40,7 @@
                         </div>
                         <div class="fr text-right">
                            <span class="add_cut" ng-click="less()">-</span>
-                           <span>{{quan}}</span>
+                           <span>{{pro_layout.quan}}</span>
                            <span class="add_cut" ng-click="puls()">+</span>
                         </div>
                      </div>

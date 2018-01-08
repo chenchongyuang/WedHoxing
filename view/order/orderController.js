@@ -1,14 +1,48 @@
 angular.module('app')
-  .controller('orderController',['$scope','$location','$stateParams','$ionicSlideBoxDelegate',function($scope,$location,$stateParams,$ionicSlideBoxDelegate){
+  .controller('orderController',['$scope','$stateParams','$ionicSlideBoxDelegate','$state','API',function($scope,$stateParams,$ionicSlideBoxDelegate,$state,API){
   	  $scope.oPrev=function(){
   	  	window.history.go(-1);
   	  };
-  	  $scope.title='我的订单';
+      $scope.order={
+         title:'我的订单',
+         comment:[],
+         receiving:[],
+         payment:[],
+         ship:[]
+      }
+  	  
       $scope.aIndex=$stateParams.index;
-      
+      API.fetchGet('http://127.0.0.1:9000/order')
+        .then(function(data){
+          $scope.recommend_pro = data.data[1];
+          $scope.order_product = data.data[0];
+            for(let key in $scope.order_product ){
+              if($scope.order_product[key].status_s == 4){
+                   //未评论
+                $scope.order.comment.push($scope.order_product[key]);
+              }else if($scope.order_product[key].status_s ==3){
+                  //未收货
+                $scope.order.receiving.push($scope.order_product[key]);
+              }else if($scope.order_product[key].status_s ==2){
+                 //未付款
+                $scope.order.payment.push($scope.order_product[key]);
+              }else if($scope.order_product[key].status_s ==1){
+                 //未收货
+                $scope.order.ship.push($scope.order_product[key]);
+              } 
+            }
+
+            console.log(data);
+        })
+        .catch(function(err){
+          console.log(err);
+        })
       $scope.index_click=function(index){
              $scope.aIndex=index;
              $ionicSlideBoxDelegate.slide($scope.aIndex);
+      }
+      $scope.click=function(url,id){
+             $state.go(url,{id:id});
       }
     
   	  $scope.all_order=[{
@@ -27,71 +61,39 @@ angular.module('app')
 	           txt:'待评价'
 	  	}];
 
-	  	$scope.order_product=[{
-              img:'./img/product_img9.png',
-              txt:'SUPOR/苏泊尔 CFXB40FD8241-86家用4L升智能电饭煲电饭锅3-5-6人',
-              reg:'￥:239',
-              sum:'x1',
-              btn1:'查看物流',
-              btn2:'追加评论',
-              btn3:'删除订单'
-	 },
-	 {        img:'./img/product_img12.png',
-              txt:'Amoi/夏新 BP-150202电热水壶304不锈钢防烫电热壶烧水壶电水壶',
-              reg:'￥:45',
-              sum:'x1',
-              btn1:'查看物流',
-              btn2:'追加评论',
-              btn3:'删除订单'
-	 },
-	 {        img:'./img/product_img6.png',
-              txt:'惠能达家用电吹风大功率恒温离子不伤发吹风筒冷热风护发吹风机',
-              reg:'￥:57',
-              sum:'x1',
-              btn1:'查看物流',
-              btn2:'追加评论',
-              btn3:'删除订单'
-	 },
-	 {        img:'./img/product_img11.png',
-              txt:'飞利浦电熨斗 新款大功率大容量 蒸汽喷射手持式迷你电熨斗家用',
-              reg:'￥:299',
-              sum:'x1',
-              btn1:'查看物流',
-              btn2:'追加评论',
-              btn3:'删除订单'
-	 }];
+	  	
 	 $scope.recommend_pro=[{
-           img:'./img/product_img1',
+           img:'./img/product_img1.png',
            txt:'干湿两用电熨斗',
            reg:'￥139',
            omitted:'...'
   	   },
   	   {
-           img:'./img/product_img2',
+           img:'./img/product_img2.png',
            txt:'手持式吸尘器',
            reg:'￥425',
            omitted:'...'
   	   },
   	   {
-           img:'./img/product_img3',
+           img:'./img/product_img3.png',
            txt:'大功率电吹风机',
            reg:'￥198',
            omitted:'...'
   	   },
 		{
-           img:'./img/product_img4',
+           img:'./img/product_img4.png',
            txt:'大功率电吹风',
            reg:'￥154',
            omitted:'...'
   	   },
   	   {
-           img:'./img/product_img5',
+           img:'./img/product_img5.png',
            txt:'电热水壶',
            reg:'￥258',
            omitted:'...'
   	   },
   	   {
-           img:'./img/product_img6',
+           img:'./img/product_img6.png',
            txt:'大功率电吹风机',
            reg:'￥325',
            omitted:'...'

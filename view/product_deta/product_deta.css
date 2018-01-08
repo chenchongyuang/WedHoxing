@@ -46,7 +46,7 @@
 	  font-size: 10px;
 }
 .product_deta .pro_deta_reg2 .pro_deta_org{
-	  width:50px; 
+	  width:45px; 
 	  margin: 0px;
 	  padding: 0;
 	  color:#8a8a8a;
@@ -89,7 +89,7 @@
   line-height: 12px;
   margin: 10px auto;
   font-size: 12px;
-  border: 1px solid #8a8a8a;
+  border-top: 1px solid #8a8a8a;
   position: relative;
 }
 .product_deta .eva_title>span{

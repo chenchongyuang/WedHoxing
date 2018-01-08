@@ -1,4 +1,4 @@
-<ion-view>
+<ion-view class="product">
 <ion-header-bar class="bar-header item-input-inset bar-balanced ">
          <div class="item-input-wrapper light-bg">
              <input type="text" name="" placeholder="搜索" class="" />
@@ -9,17 +9,18 @@
          </button>
 </ion-header-bar>
 
-<ion-content class="margin_bottom">
+
 
    <div class="row">
        <div class="col col-33">
-           <ul class="list">
+           <ul class="list contents">
                <div class="item item-divider">分类</div>
-               <li class="item" ng-repeat="key in cate_arr track by $index" ng-click="click_title($index)">{{key}}</li>
+               <li class="item" ng-repeat="key in cate_arr track by $index" ng-click="click_title($index)">{{key.name}}</li>
            </ul>
        </div>
 
        <div class="col col-67 ">
+         <div class="contents">
           <div><img src="./img/product_ads.png" class="full-image" /></div>
           <div class="row row-wrap">
               <div class="col col-90 col-offset-10">
@@ -27,20 +28,21 @@
                    <span>{{title}}</span>
                 </div>
               </div>
-          <div class="col col-50 cursor" ng-repeat="item in product track by $index">
-             <div class="product_border padding" ng-click="click(item.sref)">
-                         <img ng-src="{{item.img}}" class="full-image" />
-                         <p class="product_text">{{item.reg}}</p>
+          <div class="col col-50 cursor" ng-repeat="item in product_arr track by $index">
+             <div class="product_border padding" ng-click="click(item.pid)">
+                         <img ng-src="{{item.pimage}}" class="full-image" />
+                         <p class="product_text">{{item.goods_name}}</p>
                          <div class="overflow">
-                           <span class="fl pink">{{item.txt}}</span>
-                           <span class="fr pink">{{item.omitted}}</span>
+                           <span class="fl pink">{{item.market_price}}</span>
+                           <span class="fr pink">{{item.ellipsis}}</span>
                          </div>
              </div>
            </div>
             
           </div>
              </div> 
+        </div>
        </div>
    </div>
-</ion-content>
+
 </ion-view>

@@ -19,24 +19,24 @@
 
            
         <ion-slide-box does-continue="{{slide.doesContinue}}" auto-play="slide.autoPlay" slide-interval="{{slide.intervalTime}}" show-pager="{{slide.showPager}}">
-		  <ion-slide ng-repeat="item in pro_banner track by $index">
-		   		<img ng-src="{{item.img}}" class="full-image" />
+		  <ion-slide ng-repeat="item in product_data.pro_banner track by $index">
+		   		<img ng-src="{{item}}" class="full-image" />
 		  </ion-slide>
 		</ion-slide-box>
          
          <div class="row responsive-sm">
 
           <div class="col">
-               <p class="pro_deta_txt">{{title}}</p>
+               <p class="pro_deta_txt">{{product_data.title}}</p>
           </div>
 
           <div>
 	          <div class="row pro_deta_borde">
 	             <div class="padding">
-	                 <span class="pink pro_deta_reg">￥：89.00</span>
+	                 <span class="pink pro_deta_reg">&yen;{{product_data.price}}</span>
 	             </div>
 	             <div class="col col-33 pro_deta_reg2">
-                     <div class="pro_deta_org">￥：128<span></span></div>
+                     <div class="pro_deta_org text-center">&yen;{{product_data.original_price}}<span></span></div>
                      <span class="discount text-center">7折</span>
 	             </div>
 
@@ -102,7 +102,7 @@
 
          <div class="details_img">
             <div class="row responsive-sm">
-                <div class="col" ng-repeat="key in details_img track by $index">
+                <div class="col" ng-repeat="key in product_data.details_img track by $index">
                   <img ng-src="{{key}}" class="full-image" />
                 </div>
             </div>

@@ -59,21 +59,18 @@
 }
 </style>
 <ion-modal-view>
-
-
-
   <div class="parameters" ng-class="{id1 : index == id[0] }">
               <div class="parameters_txt ">
                  <h4 class="text-center">{{parameters_title}}</h4>
 
                <div class="parameters_txt2">
                    <ion-list class="padding ">
-                    <ion-item ng-repeat="key in parameters track by $index">
+                    <ion-item ng-repeat="key in product_data.parameters track by $index">
                        <div class="row">
                           <div class="col col-20">
                              <span class="product_name">{{key.name}}</span>
                           </div>
-                          <div class="col col-offset-10 col-67 text-center">{{key.txt}}</div>
+                          <div class="col col-offset-10 col-67 text-center">{{key.title}}</div>
                        </div>
                       
                     </ion-item>

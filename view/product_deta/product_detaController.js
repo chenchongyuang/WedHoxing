@@ -8,16 +8,35 @@ angular.module('app')
             intervalTime: 2000,
             showPager: true
         };
-     $scope.title='苏泊尔（SUPOR）喷气式家用电熨斗YD18A01A-12 五档控温蒸汽烫斗';
+     
      $scope.id=['id1','id2'];
+     $scope.product_data={
+          title:null,
+          pro_banner:null,
+          price:null,
+          original_price:null,
+          parameters:[],
+          details_img:null
+     }
      $scope.index=null;
-
-     API.fetchGet('http://127.0.0.1:9000/product_data',$stateParams.id)
+     API.fetchGet('http://127.0.0.1:9000/product_data',{id:$stateParams.id})
        .then(function(data){
-           console.log(data);
+           $scope.product_data.pro_banner = data.data[0].banner.split(',');
+           $scope.product_data.title = data.data[0].goods_name;
+           $scope.product_data.price = data.data[0].market_price;
+           $scope.product_data.original_price = Math.floor($scope.product_data.price * 0.7);
+           $scope.product_data.details_img = data.data[0].product_details.split(',');
+           let a = data.data[0].parameter.split(';');
+           let a2 = [];
+             for(let i=0;i<a.length;i++){
+              a2.push(a[i].split(','));
+             }
+             for(let j=0;j<a.length;j++){
+                  $scope.product_data.parameters.push({name:a2[j][0],title:a2[j][1]});   
+             }
        })
        .catch(function(err){
-        console.log(err);
+        console.log('出错了');
        })
     //-----------------
     //
@@ -44,38 +63,7 @@ angular.module('app')
      //-----------------
     $scope.parameters_title='产品参数';
 
-    $scope.parameters=[{
-             name:'电水壶品牌',
-             txt:'Haier/海尔'
-    }, 
-    {
-             name:'海尔电水壶型号',
-             txt:'YD1618'
-    }, 
-    {
-             name:'电水壶底板材质',
-             txt:'顺滑贴衣底板'
-    }, 
-    {
-             name:'电水壶最大功率',
-             txt:'1000w(含）-1999w(含）'
-    }, 
-    {
-             name:'电水壶档位选择',
-             txt:'档以上'
-    }, 
-    {
-             name:'颜色分类',
-             txt:'红白'
-    },
-    {
-             name:'是否迷你',
-             txt:'迷你'
-    },
-    {
-             name:'调温方式',
-             txt:'机械调温'
-    }];
+    
     //-----------------------
     //跳转连接
    	$scope.oPrev=function(){
@@ -86,27 +74,6 @@ angular.module('app')
       $location.path(url);
     }
     //---------------------------
-    
-
-   	
-    
-   
-    $scope.details_img=[
-      './img/details_img1.png',
-      './img/details_img2.png',
-      './img/details_img3.png',
-      './img/details_img4.png'
-    ];
-
-    $scope.pro_banner=[{
-          img:'./img/pro_deta_bannerimg1.png'
-    },
-    {
-          img:'./img/pro_deta_bannerimg1.png'
-    },
-    {
-          img:'./img/pro_deta_bannerimg1.png'
-    }];
     //模态1内容
     $scope.modal1=[{
           img:'./img/icon13.png',

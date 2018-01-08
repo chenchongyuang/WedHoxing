@@ -22,25 +22,25 @@
             <ion-slide>
                  <ion-list class="all_order">
 							      <div ng-repeat="key in order_product track by $index">
-								       <ion-item class="item-thumbnail-left" ng-click="click('product_deta')">
-								         <img ng-src="{{key.img}}" class="pro_img" />
+								       <ion-item class="item-thumbnail-left" ng-click="click('pro_detaLayout.product_deta',key.pid)">
+								         <img ng-src="{{key.pimage}}" class="pro_img" />
 								         <div class="row">
 								            <div class="col col-67">
 									             <h2 class="order_deta">
-												          {{key.txt}}
+												          {{key.goods_name}}
 													    </h2>
 												    </div>
 												    <div class="col col-20 text-right">
-								               <span class="pink">{{key.reg}}</span>
-								               <p>{{key.sum}}</p>
+								               <span class="pink">&yen;{{key.market_price}}</span>
+								               <p>{{key.ellipsis}}</p>
 												    </div>
 								         </div>
 								       </ion-item>
 								       <div class="order_btn text-center">
 							            <div class="row">
-							                 <div class="col col-20 col-offset-33"><button class="button">{{key.btn1}}</button></div>
-							                 <div class="col col-20"><button class="button">{{key.btn2}}</button></div>
-							                 <div class="col col-20"><button class="button">{{key.btn3}}</button></div>
+							                 <div class="col col-20 col-offset-33"><button class="button">查看物流</button></div>
+							                 <div class="col col-20"><button class="button">追加评论</button></div>
+							                 <div class="col col-20"><button class="button">删除订单</button></div>
 							            </div>
 								       </div>
 							       </div>
@@ -48,122 +48,193 @@
             </ion-slide>
                
             <ion-slide>
-                 <div class="wait_ship">
-									  <div class="row">
-								          <div class="col order_img"><img src="./img/22222.png" class="full-image" /></div>
-									  </div>
-									  <div class="text-center">
-									    <h3>您还没有相关订单</h3>
-									    <span>可以去看看哪些想买的</span>
-									  </div>
-									  <div class="wait_payment_label">
-								          <div class="wait_payment_line">
-								              <span><i class="icon ion-android-favorite line_icon"></i>你可能想买</span>
-								          </div>
-								          <div class="recommend_pro">
-									               </div>
-								               <div class="row row-wrap"> 
-									               <div class="col col-33" ng-repeat="item in recommend_pro" ng-click="click('product_deta')">
-									                  <div class="padding product_border">
-										                  <img ng-src="{{item.img}}" class="full-image" />
-										                  <p class="product_text">{{item.txt}}</p>
-										                  <div class="overflow">
-										                  	<span class="fl pink">{{item.reg}}</span>
-										                  	<span class="fr pink">{{item.omitted}}</span>
-									                  </div>
-									                </div>
-									           </div>
-								          </div>
-									  </div>
-								</div>
+              <div class="wait_ship">
+	              <div ng-show="order.ship.length > 0 ?  false : true">
+					  <div class="row">
+				          <div class="col order_img"><img src="./img/22222.png" class="full-image" /></div>
+					  </div>
+					  <div class="text-center">
+					    <h3>您还没有相关订单</h3>
+					    <span>可以去看看哪些想买的</span>
+					  </div>
+				  </div>
+				       <div ng-repeat="key in order.ship track by $index" ng-show="order.ship.length > 0 ?  true : false">
+						       <ion-item class="item-thumbnail-left" ng-click="click('pro_detaLayout.product_deta',key.pid)">
+						         <img ng-src="{{key.pimage}}" class="pro_img" />
+						         <div class="row">
+						            <div class="col col-67">
+							             <h2 class="order_deta">
+										          {{key.goods_name}}
+											    </h2>
+										    </div>
+										    <div class="col col-20 text-right">
+						               <span class="pink">&yen;{{key.market_price}}</span>
+						               <p>{{key.ellipsis}}</p>
+										    </div>
+						         </div>
+						       </ion-item>
+						       <div class="order_btn ">
+					            <div class="row text-right">
+					                 <div class="col"><button class="button">删除订单</button></div>
+					            </div>
+						       </div>
+			       </div>
+					  <div class="wait_payment_label">
+				          <div class="wait_payment_line">
+				              <span><i class="icon ion-android-favorite line_icon"></i>你可能想买</span>
+				          </div>
+				          <div class="recommend_pro">
+					               </div>
+				               <div class="row row-wrap"> 
+					               <div class="col col-33" ng-repeat="item in recommend_pro" ng-click="click('pro_detaLayout.product_deta',item.pid)">
+					                  <div class="padding product_border">
+						                  <img ng-src="{{item.pimage}}" class="full-image" />
+									                  <p class="product_text">{{item.goods_name}}</p>
+									                  <div class="overflow">
+									                  	<span class="fl pink">&yen;{{item.market_price}}</span>
+									                  	<span class="fr pink">{{item.ellipsis}}</span>
+					                  </div>
+					                </div>
+					           </div>
+				          </div>
+					  </div>
+			</div>
             </ion-slide>
 
             <ion-slide>
                  <div class="wait_ship">
-									  <div class="row">
-								          <div class="col order_img"><img src="./img/22222.png" class="full-image" /></div>
-									  </div>
-									  <div class="text-center">
-									    <h3>您还没有相关订单</h3>
-									    <span>可以去看看哪些想买的</span>
-									  </div>
-									  <div class="wait_payment_label">
-								          <div class="wait_payment_line">
-								              <span><i class="icon ion-android-favorite line_icon"></i>你可能想买</span>
-								          </div>
-								          <div class="recommend_pro">
-									               </div>
-								               <div class="row row-wrap"> 
-									               <div class="col col-33" ng-repeat="item in recommend_pro" ng-click="click('product_deta')">
-									                  <div class="padding product_border">
-										                  <img ng-src="{{item.img}}" class="full-image" />
-										                  <p class="product_text">{{item.txt}}</p>
-										                  <div class="overflow">
-										                  	<span class="fl pink">{{item.reg}}</span>
-										                  	<span class="fr pink">{{item.omitted}}</span>
-									                  </div>
-									                </div>
-									           </div>
-								          </div>
-									  </div>
-								</div>
+	                <div ng-show="order.ship.length > 0 ?  false : true">
+					  <div class="row">
+				          <div class="col order_img"><img src="./img/22222.png" class="full-image" /></div>
+					  </div>
+					  <div class="text-center">
+					    <h3>您还没有相关订单</h3>
+					    <span>可以去看看哪些想买的</span>
+					  </div>
+					</div>
+					 <div ng-repeat="key in order.receiving track by $index" ng-show="order.ship.length > 0 ?  true : false">
+						       <ion-item class="item-thumbnail-left" ng-click="click('pro_detaLayout.product_deta',key.pid)">
+						         <img ng-src="{{key.pimage}}" class="pro_img" />
+						         <div class="row">
+						            <div class="col col-67">
+							             <h2 class="order_deta">
+										          {{key.goods_name}}
+											    </h2>
+										    </div>
+										    <div class="col col-20 text-right">
+						               <span class="pink">&yen;{{key.market_price}}</span>
+						               <p>{{key.ellipsis}}</p>
+										    </div>
+						         </div>
+						       </ion-item>
+						       <div class="order_btn ">
+					            <div class="row text-right">
+					                 <div class="col"><button class="button">删除订单</button></div>
+					            </div>
+						       </div>
+			       </div>
+					  <div class="wait_payment_label">
+				          <div class="wait_payment_line">
+				              <span><i class="icon ion-android-favorite line_icon"></i>你可能想买</span>
+				          </div>
+				          <div class="recommend_pro">
+					               </div>
+				               <div class="row row-wrap"> 
+					               <div class="col col-33" ng-repeat="item in recommend_pro" ng-click="click('pro_detaLayout.product_deta',item.pid)">
+					                  <div class="padding product_border">
+						                  <img ng-src="{{item.pimage}}" class="full-image" />
+									                  <p class="product_text">{{item.goods_name}}</p>
+									                  <div class="overflow">
+									                  	<span class="fl pink">&yen;{{item.market_price}}</span>
+									                  	<span class="fr pink">{{item.ellipsis}}</span>
+					                  </div>
+					                </div>
+					           </div>
+				          </div>
+					  </div>
+				</div>
             </ion-slide>
 
             <ion-slide>
                  <div class="wait_ship">
-									  <div class="row">
-								          <div class="col order_img"><img src="./img/22222.png" class="full-image" /></div>
-									  </div>
-									  <div class="text-center">
-									    <h3>您还没有相关订单</h3>
-									    <span>可以去看看哪些想买的</span>
-									  </div>
-									  <div class="wait_payment_label">
-								          <div class="wait_payment_line">
-								              <span><i class="icon ion-android-favorite line_icon"></i>你可能想买</span>
-								          </div>
-								          <div class="recommend_pro">
-									               </div>
-								               <div class="row row-wrap"> 
-									               <div class="col col-33" ng-repeat="item in recommend_pro" ng-click="click('product_deta')">
-									                  <div class="padding product_border">
-										                  <img ng-src="{{item.img}}" class="full-image" />
-										                  <p class="product_text">{{item.txt}}</p>
-										                  <div class="overflow">
-										                  	<span class="fl pink">{{item.reg}}</span>
-										                  	<span class="fr pink">{{item.omitted}}</span>
-									                  </div>
-									                </div>
-									           </div>
-								          </div>
-									  </div>
-								</div>
+			                 <div ng-show="order.ship.length > 0 ?  false : true">
+								  <div class="row">
+							          <div class="col order_img"><img src="./img/22222.png" class="full-image" /></div>
+								  </div>
+								  <div class="text-center">
+								    <h3>您还没有相关订单</h3>
+								    <span>可以去看看哪些想买的</span>
+								  </div>
+						     </div>
+
+						     <div ng-repeat="key in order.ship track by $index" ng-show="order.ship.length > 0 ?  true : false">
+								       <ion-item class="item-thumbnail-left" ng-click="click('pro_detaLayout.product_deta',key.pid)">
+								         <img ng-src="{{key.pimage}}" class="pro_img" />
+								         <div class="row">
+								            <div class="col col-67">
+									             <h2 class="order_deta">
+												          {{key.goods_name}}
+													    </h2>
+												    </div>
+												    <div class="col col-20 text-right">
+								               <span class="pink">&yen;{{key.market_price}}</span>
+								               <p>{{key.ellipsis}}</p>
+												    </div>
+								         </div>
+								       </ion-item>
+								       <div class="order_btn ">
+							            <div class="row text-right">
+							                 <div class="col col-20 col-offset-50"><button class="button">查看物流</button></div>
+							                 <div class="col col-20"><button class="button">删除订单</button></div>
+							            </div>
+								       </div>
+					        </div>
+								  <div class="wait_payment_label">
+							          <div class="wait_payment_line">
+							              <span><i class="icon ion-android-favorite line_icon"></i>你可能想买</span>
+							          </div>
+							          <div class="recommend_pro">
+								               </div>
+							               <div class="row row-wrap"> 
+								               <div class="col col-33" ng-repeat="item in recommend_pro" ng-click="click('pro_detaLayout.product_deta',item.pid)">
+								                  <div class="padding product_border">
+									                  <img ng-src="{{item.pimage}}" class="full-image" />
+									                  <p class="product_text">{{item.goods_name}}</p>
+									                  <div class="overflow">
+									                  	<span class="fl pink">&yen;{{item.market_price}}</span>
+									                  	<span class="fr pink">{{item.ellipsis}}</span>
+								                  </div>
+								                </div>
+								           </div>
+							          </div>
+								  </div>
+				</div>
             </ion-slide>
 
             <ion-slide>
                 <div class="wait_evaluation">
 								   
 								     <ion-list>
-									      <div ng-repeat="key in order_product track by $index">
-										       <ion-item class="item-thumbnail-left" ng-click="click('product_deta')">
-										         <img ng-src="{{key.img}}" class="pro_img" />
+									      <div ng-repeat="key in order.comment track by $index">
+										       <ion-item class="item-thumbnail-left" ng-click="click('pro_detaLayout.product_deta',key.pid)">
+										         <img ng-src="{{key.pimage}}" class="pro_img" />
 										         <div class="row">
 										            <div class="col col-67">
 											             <h2 class="order_deta">
-														          {{key.txt}}
+														          {{key.goods_name}}
 															    </h2>
 														    </div>
 														    <div class="col col-20 text-right">
-										               <span class="pink">{{key.reg}}</span>
-										               <p>{{key.sum}}</p>
+										               <span class="pink">&yen;{{key.market_price}}</span>
+										               <p>{{key.ellipsis}}</p>
 														    </div>
 										         </div>
 										       </ion-item>
 										       <div class="order_btn text-center">
 									            <div class="row">
-									                 <div class="col col-20 col-offset-33"><button class="button">{{key.btn1}}</button></div>
-									                 <div class="col col-20"><button class="button evaluation_btn_bg">{{key.btn2}}</button></div>
-									                 <div class="col col-20"><button class="button">{{key.btn3}}</button></div>
+									                 <div class="col col-20 col-offset-33"><button class="button">查看物流</button></div>
+									                 <div class="col col-20"><button class="button evaluation_btn_bg">追加评论</button></div>
+									                 <div class="col col-20"><button class="button">删除订单</button></div>
 									            </div>
 										       </div>
 									       </div>
@@ -175,14 +246,13 @@
 								   <div class="recommend_pro">
 									             
 								               <div class="row row-wrap"> 
-									               <div class="col col-33" ng-repeat="item in recommend_pro" ng-click="click('product_deta')">
+									               <div class="col col-33" ng-repeat="item in recommend_pro" ng-click="click('pro_detaLayout.product_deta',item.pid)">
 									                  <div class="padding product_border">
-										                  <img ng-src="{{item.img}}" class="full-image" />
-										                  <p class="product_text">{{item.txt}}</p>
-										                  <div class="overflow">
-										                  	<span class="fl pink">{{item.reg}}</span>
-										                  	<span class="fr pink">{{item.omitted}}</span>
-									                  </div>
+										                  <img ng-src="{{item.pimage}}" class="full-image" />
+									                  <p class="product_text">{{item.goods_name}}</p>
+									                  <div class="overflow">
+									                  	<span class="fl pink">&yen;{{item.market_price}}</span>
+									                  	<span class="fr pink">{{item.ellipsis}}</span>
 									                </div>
 									           </div>
 								          </div>

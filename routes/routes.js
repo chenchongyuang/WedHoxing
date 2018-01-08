@@ -62,6 +62,7 @@ angular.module('app')
           })
           //产品详情二级路由
           .state('pro_detaLayout',{
+            params:{'id':null},
             url:'',
             abstruct:true,
             templateUrl:'./view/pro_detaLayout/pro_layout.html',

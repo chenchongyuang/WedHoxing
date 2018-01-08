@@ -1,3 +1,6 @@
+.product{
+	height: 100%;
+}
 .border_bom{
    width: 150px;
    border-bottom: 1px solid #676767;
@@ -24,4 +27,10 @@
 	border: 1px solid #d8d8d8;
 	border-radius: 4px;
 	box-sizing: border-box;
+}
+.contents{
+	height: 50%;
+	overflow-y: auto;
+	overflow-x: hidden;
+	margin-bottom: -200px;
 }
