@@ -1,15 +1,6 @@
 angular.module('app')
   .controller('shoppingController',['$scope','$state','$stateParams','API',function($scope,$state,$stateParams,API){
-     
-     
-     $scope.shopping ={
-         shopping_product:[],
-         value:[false,false,false,false,false],
-         quanbu:false,
-         sum:0,
-         recommend_product:[]
-
-     }
+     //后台数据接口
      API.fetchGet('http://127.0.0.1:9000/shopping')
        .then(function(data){
         $scope.shopping.shopping_product = data.data[0];
@@ -20,6 +11,18 @@ angular.module('app')
         console.log(err);
        })
 
+     $scope.shopping ={
+         shopping_product:[],
+         value:[false,false,false,false,false],
+         quanbu:false,
+         sum:0,
+         recommend_product:[]
+
+     }
+     //跳转页面
+     $scope.click=function(id){
+         $state.go('pro_detaLayout.product_deta',{id:id});
+     }
   	 
   	 $scope.data = {
         showDelete: false

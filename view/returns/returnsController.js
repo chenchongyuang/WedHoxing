@@ -1,46 +1,49 @@
 angular.module('app')
- .controller('returnsController',['$scope','$state','$ionicSlideBoxDelegate',function($scope,$state,$ionicSlideBoxDelegate){
+ .controller('returnsController',['$scope','$state','$ionicSlideBoxDelegate','API',function($scope,$state,$ionicSlideBoxDelegate,API){
+   $scope.order_product =[];
+  //后台数据请求接口
+  API.fetchGet('http://127.0.0.1:9000/returns')
+    .then(function(data){
+      $scope.order_product = data.data;
+        console.log(data.data)
+    })
+    .catch(function(err){
+      console.log(err);
+    })
+
+  //返回上一页
  	$scope.oPrev=function(){
  		window.history.go(-1);
  	};
- 	$scope.click=function(){
-        $state.go('pro_detaLayout.product_deta');
+
+  //跳转页面
+ 	$scope.click=function(id){
+        $state.go('pro_detaLayout.product_deta',{id:id});
  	};
+
+  //点击跳转滑块页面
  	$scope.click_index=function(index){
         $scope.aIndex=index;
         $ionicSlideBoxDelegate.slide($scope.aIndex);
         
  	} 
  	$scope.aIndex=0;
+
  	$scope.title=[{
           txt:'全部'
  	},
  	{
           txt:'待用户处理'
  	}]
- 	$scope.order_product=[{
-              img:'./img/product_img9.png',
-              txt:'SUPOR/苏泊尔 CFXB40FD8241-86家用4L升智能电饭煲电饭锅3-5-6人',
-              reg:'￥:239',
-              sum:'x1',
-              btn1:'查看物流',
-              btn2:'追加评论',
-              btn3:'删除订单'
-	 },
-	 {        img:'./img/product_img12.png',
-              txt:'Amoi/夏新 BP-150202电热水壶304不锈钢防烫电热壶烧水壶电水壶',
-              reg:'￥:45',
-              sum:'x1',
-              btn1:'查看物流',
-              btn2:'追加评论',
-              btn3:'删除订单'
-	 },
-	 {        img:'./img/product_img6.png',
-              txt:'惠能达家用电吹风大功率恒温离子不伤发吹风筒冷热风护发吹风机',
-              reg:'￥:57',
-              sum:'x1',
-              btn1:'查看物流',
-              btn2:'追加评论',
-              btn3:'删除订单'
-	 }];
+ 	
+  $scope.Deleteing=function(item,id){
+       $scope.order_product.splice($scope.order_product.indexOf(item),1);
+       API.fetchGet('http://127.0.0.1:9000/Delete_order',{id:id})
+         .then(function(data){
+            console.log(data);
+         })
+         .catch(function(err){
+            console.log(err);
+         })
+  }
  }])

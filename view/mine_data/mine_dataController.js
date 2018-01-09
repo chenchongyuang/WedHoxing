@@ -1,39 +1,37 @@
 angular.module('app')
-  .controller('mine_dataController',['$scope','$ionicPopup','position_modal',function($scope,$ionicPopup,position_modal){
+  .controller('mine_dataController',['$scope','$ionicPopup','API','$rootScope',function($scope,$ionicPopup,API,$rootScope){
   	$scope.oPrev=function(){
   		window.history.go(-1);
   	}
+
+  	console.log($rootScope.userInfo);
+  	
   	$scope.data = {
-	  	wifi:'Pro',
+	  	wifi:$rootScope.userInfo.uname,
 	  	ger:'',
 	  	position:'广州',
 	  	birthday:'1995.12.15'
 	  };
-	 //修改昵称弹框
-  	$scope.name = function() {
+     // $scope.data.wifi=$rootScope.userInfo.uname;
+     console.log($scope.data.wifi);
+	   
+		 //修改昵称弹框
+	  	$scope.name = function() {
   	  // 自定义弹窗
-	  var myPopup = $ionicPopup.show({
-	    template: '<input type="text" ng-model="data.wifi" >',
-	    title: '请输入昵称',
-	    scope:$scope,
-	    buttons: [
-	      { text: '取消' },
-	      {
-	        text: '<b>确定</b>',
-	        type: 'button-positive',
-	        onTap: function(e) {
-	          if (!$scope.data.wifi) {
-	              e.preventDefault();
-	          } else {
-	            return $scope.data.wifi;
-	          }
-	        }
-	      }
-	    ]
-	  });
-	  myPopup.then(function(res) {
-	  });
-	 };
+			  var myPopup = $ionicPopup.show({
+			    template: '<input type="text" ng-model="data.wifi" >',
+			    title: '请输入昵称',
+			    scope:$scope,
+			    buttons: [
+			      { text: '取消' },
+			      {
+			        text: '<b>确定</b>',
+			        type: 'button-positive'
+			      }
+			    ]
+			  });
+			 
+			 };
     //修改性别弹框
     $scope.ger = function() {
   	  // 自定义弹窗
@@ -59,15 +57,5 @@ angular.module('app')
 	  myPopup.then(function(res) {
 	  });
 	 };
-    
-    //模态
-    position_modal.initModal($scope);
-    $scope.on=function(){
-    	position_modal.openModal($scope);
-    };
-    $scope.off=function(){
-    	position_modal.closeModal($scope);
-    };
-    $scope.aa=function(){
-    }
+
   }])

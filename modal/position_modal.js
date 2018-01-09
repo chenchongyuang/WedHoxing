@@ -1,4 +1,4 @@
-angular.module('app')
+/*angular.module('app')
   .factory('position_modal',['$ionicModal',function($ionicModal){
 
   	  return {
@@ -18,6 +18,6 @@ angular.module('app')
   	  		scope.m.hide();
   	  	}
   	  };
-  }])
+  }])*/
 
   

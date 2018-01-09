@@ -19,3 +19,43 @@
 .mine_data .item-button-right > .button{
    top:0;
 }
+.mine_data {
+        margin: 0;
+        padding: 0;
+        -webkit-appearance: none; 
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-touch-callout: none;
+        box-sizing: border-box;
+    }
+    
+    .mine_data html,
+    body {
+        margin: 0 auto;
+        width: 100%;
+        min-height: 100%;
+        overflow-x: hidden;
+        -webkit-user-select: none;
+    }
+    
+    .mine_data body {
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        -webkit-text-size-adjust: 100%; 
+        -webkit-overflow-scrolling: touch;
+        overflow-scrolling: touch;
+    }
+    
+    .mine_data input {
+        width: 90%;
+        height: 40px;
+        font-size: 18px;
+        border: 1px solid #b72f20;
+        border-radius: 5px;
+        padding: 5px;
+        margin-left: 10px;
+    }
+    .mine_data .aa{
+        display: none;
+    }
+    .mine_data input[type=text]{
+       display: inline;
+    }

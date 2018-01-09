@@ -1,6 +1,7 @@
 angular.module('app')
   .controller('orderController',['$scope','$stateParams','$ionicSlideBoxDelegate','$state','API',function($scope,$stateParams,$ionicSlideBoxDelegate,$state,API){
-  	  $scope.oPrev=function(){
+  	  //返回上一页
+      $scope.oPrev=function(){
   	  	window.history.go(-1);
   	  };
       $scope.order={
@@ -10,12 +11,24 @@ angular.module('app')
          payment:[],
          ship:[]
       }
-  	  
+  	  $scope.Deleteing=function(item,id){
+           $scope.order_product.splice($scope.order_product.indexOf(item),1);
+           API.fetchGet('http://127.0.0.1:9000/Delete_order',{id:id})
+             .then(function(data){
+                console.log(data);
+             })
+             .catch(function(err){
+                console.log(err);
+             })
+      }
       $scope.aIndex=$stateParams.index;
+      //后台数据获取接口
       API.fetchGet('http://127.0.0.1:9000/order')
         .then(function(data){
           $scope.recommend_pro = data.data[1];
           $scope.order_product = data.data[0];
+          console.log($scope.recommend_pro);
+          console.log($scope.order_product[1].status_s);
             for(let key in $scope.order_product ){
               if($scope.order_product[key].status_s == 4){
                    //未评论
@@ -37,14 +50,16 @@ angular.module('app')
         .catch(function(err){
           console.log(err);
         })
+      //目录点击跳转
       $scope.index_click=function(index){
              $scope.aIndex=index;
              $ionicSlideBoxDelegate.slide($scope.aIndex);
       }
+      //跳转到产品详情页
       $scope.click=function(url,id){
              $state.go(url,{id:id});
       }
-    
+       //目录
   	  $scope.all_order=[{
 	           txt:'全部'
 	  	}, 
@@ -60,42 +75,4 @@ angular.module('app')
 	  	{
 	           txt:'待评价'
 	  	}];
-
-	  	
-	 $scope.recommend_pro=[{
-           img:'./img/product_img1.png',
-           txt:'干湿两用电熨斗',
-           reg:'￥139',
-           omitted:'...'
-  	   },
-  	   {
-           img:'./img/product_img2.png',
-           txt:'手持式吸尘器',
-           reg:'￥425',
-           omitted:'...'
-  	   },
-  	   {
-           img:'./img/product_img3.png',
-           txt:'大功率电吹风机',
-           reg:'￥198',
-           omitted:'...'
-  	   },
-		{
-           img:'./img/product_img4.png',
-           txt:'大功率电吹风',
-           reg:'￥154',
-           omitted:'...'
-  	   },
-  	   {
-           img:'./img/product_img5.png',
-           txt:'电热水壶',
-           reg:'￥258',
-           omitted:'...'
-  	   },
-  	   {
-           img:'./img/product_img6.png',
-           txt:'大功率电吹风机',
-           reg:'￥325',
-           omitted:'...'
-  	   }]
   }])

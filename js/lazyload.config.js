@@ -180,9 +180,7 @@ app.config(["$provide", "$compileProvider", "$controllerProvider", "$filterProvi
 			 		name: 'mine_data',
 			 		files: [
 			 			'./view/mine_data/mine_dataController.js',
-			 			'./view/mine_data/mine_data.css',
-			 			'./view/mine_data/aa.js'
-			 			
+			 			'./view/mine_data/mine_data.css'
 			 		]
 			 	},
 			 	{

@@ -1,5 +1,5 @@
 angular.module('app')
-   .controller('layoutController',['$scope',function($scope){
+   .controller('layoutController',['$scope','$ionicPopup',function($scope,$ionicPopup){
    	$scope.footer=[{
              on:'ion-ios-home',
              off:'ion-ios-home-outline',
@@ -25,4 +25,5 @@ angular.module('app')
              txt:'个人',
              url:'layout.mine'
   	   }]
+       $rootScope.id = $ionicPopup.id;
    }])
