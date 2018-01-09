@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : mysql_1
-Source Server Version : 50617
+Source Server         : 本地
+Source Server Version : 50714
 Source Host           : localhost:3306
 Source Database       : hoxing
 
 Target Server Type    : MYSQL
-Target Server Version : 50617
+Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2018-01-08 21:53:20
+Date: 2018-01-09 13:28:25
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -33,7 +33,7 @@ CREATE TABLE `t_goods_category` (
 -- ----------------------------
 -- Records of t_goods_category
 -- ----------------------------
-INSERT INTO `t_goods_category` VALUES ('1', '熨烫电器', '1', 'http://127.0.0.1:9000/icon.png', '1', '001');
+INSERT INTO `t_goods_category` VALUES ('1', '熨烫电器', '2', 'http://127.0.0.1:9000/icon.png', '1', '001');
 INSERT INTO `t_goods_category` VALUES ('2', '个人护理', '2', 'http://127.0.0.1:9000/icon1.png', '1', '002');
 INSERT INTO `t_goods_category` VALUES ('3', '生活电器', '3', 'http://127.0.0.1:9000/icon2.png', '1', '003');
 INSERT INTO `t_goods_category` VALUES ('4', '西式电器', '4', 'http://127.0.0.1:9000/icon3.png', '1', '004');

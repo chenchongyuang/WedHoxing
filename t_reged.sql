@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : mysql_1
-Source Server Version : 50617
+Source Server         : 本地
+Source Server Version : 50714
 Source Host           : localhost:3306
 Source Database       : hoxing
 
 Target Server Type    : MYSQL
-Target Server Version : 50617
+Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2018-01-08 21:53:31
+Date: 2018-01-09 13:28:40
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -32,7 +32,7 @@ CREATE TABLE `t_reged` (
 -- ----------------------------
 -- Records of t_reged
 -- ----------------------------
-INSERT INTO `t_reged` VALUES ('2', 'd715cf55804f2e6313599b98f158701c', '13927975080', '', '2018-01-04 09:16:35', '1');
+INSERT INTO `t_reged` VALUES ('2', '9fee823656cdf98ee07813e904daaa34', '13927975080', '', '2018-01-09 10:46:21', '1');
 INSERT INTO `t_reged` VALUES ('3', '45dd9abbacf37b2049c446fc6186e27d', '13927975555', '', '2018-01-03 09:57:14', '0');
 INSERT INTO `t_reged` VALUES ('4', '938b45e890b00bdc117ab609fd5a77af', '13624264886', '', '2018-01-03 09:57:45', '0');
 INSERT INTO `t_reged` VALUES ('5', '45dd9abbacf37b2049c446fc6186e27d', '13927975081', '', '2018-01-03 10:09:23', '0');

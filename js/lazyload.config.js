@@ -208,6 +208,14 @@ app.config(["$provide", "$compileProvider", "$controllerProvider", "$filterProvi
 			 			'./view/news/news.css'
 			 			
 			 		]
+			 	},
+			 	{
+			 		name: 'forget_pwd',
+			 		files: [
+			 			'./view/forget_pwd/forget_pwdController.js',
+			 			'./view/forget_pwd/forget_pwd.css'
+			 			
+			 		]
 			 	}
 
 	 		]

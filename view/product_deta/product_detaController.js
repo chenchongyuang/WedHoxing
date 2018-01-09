@@ -24,7 +24,7 @@ angular.module('app')
            $scope.product_data.pro_banner = data.data[0].banner.split(',');
            $scope.product_data.title = data.data[0].goods_name;
            $scope.product_data.price = data.data[0].market_price;
-           $scope.product_data.original_price = Math.floor($scope.product_data.price * 0.7);
+           $scope.product_data.original_price = Math.floor($scope.product_data.price / 0.7);
            $scope.product_data.details_img = data.data[0].product_details.split(',');
            let a = data.data[0].parameter.split(';');
            let a2 = [];

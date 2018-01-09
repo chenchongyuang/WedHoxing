@@ -298,5 +298,16 @@ angular.module('app')
                 return $ocLazyLoad.load('news');
               }]
             }
+          })//--------------------------------------------
+          //修改密码
+          .state('forget_pwd',{
+            url:'/forget_pwd',
+            templateUrl:'./view/forget_pwd/forget_pwd.html',
+            controller:'forget_pwdController',
+            resolve:{
+              des:['$ocLazyLoad',function($ocLazyLoad){
+                return $ocLazyLoad.load('forget_pwd');
+              }]
+            }
           })
    }])

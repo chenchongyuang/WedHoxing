@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : mysql_1
-Source Server Version : 50617
+Source Server         : 本地
+Source Server Version : 50714
 Source Host           : localhost:3306
 Source Database       : hoxing
 
 Target Server Type    : MYSQL
-Target Server Version : 50617
+Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2018-01-08 21:53:25
+Date: 2018-01-09 13:28:35
 */
 
 SET FOREIGN_KEY_CHECKS=0;
