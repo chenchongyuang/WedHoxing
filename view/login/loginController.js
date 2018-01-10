@@ -37,6 +37,7 @@ angular.module('app')
 				                }else if(data.data.statusCode == 200){
 				                	$rootScope.userInfo.phone = data.data.phone;
 				                	$rootScope.userInfo.uname = data.data.uname;
+				                	$rootScope.userInfo.default_address = data.data.default_address;
 				                	$rootScope.userInfo.isLogin = true;
 				                	tip.loadTips.hideLoading();
 				                	console.log($rootScope.userInfo);

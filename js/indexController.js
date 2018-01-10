@@ -3,13 +3,17 @@ angular.module('app')
    	   $rootScope.userInfo = {
 		 	 	phone:'',
 		 	 	isLogin:false,
-		 	 	uname:''
+		 	 	uname:'',
+        default_addres:''
 		 	 };
        $rootScope.prompt_box=function(name){
           $ionicPopup.show({
                    title:name,
                    scope:$scope,
-                   buttons:[{text:'确定'}]
+                   buttons:[{
+                    text:'确定',
+                    type:'button-balanced'
+                  }]
          })
        }
    }])

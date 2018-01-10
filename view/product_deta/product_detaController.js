@@ -1,5 +1,5 @@
 angular.module('app')
-   .controller('product_detaController',['$scope','$ionicSlideBoxDelegate','$location','parameters_modal','$stateParams','API',function($scope,$ionicSlideBoxDelegate,$location,parameters_modal,$stateParams,API){
+   .controller('product_detaController',['$scope','$ionicSlideBoxDelegate','$location','parameters_modal','$stateParams','API','$rootScope',function($scope,$ionicSlideBoxDelegate,$location,parameters_modal,$stateParams,API,$rootScope){
     
     //轮播图
     $scope.slide = {
@@ -8,7 +8,6 @@ angular.module('app')
             intervalTime: 2000,
             showPager: true
         };
-     
      $scope.id=['id1','id2'];
      $scope.product_data={
           title:null,
@@ -16,7 +15,8 @@ angular.module('app')
           price:null,
           original_price:null,
           parameters:[],
-          details_img:null
+          details_img:null,
+          address:$rootScope.userInfo.default_address
      }
      $scope.index=null;
      API.fetchGet('http://127.0.0.1:9000/product_data',{id:$stateParams.id})

@@ -170,9 +170,10 @@ angular.module('app')
           //---------------------------------------------
           //管理收货地址
           .state('ship_ads',{
-            url:'/ship_ads:name:phone:address:deta_address',
+            url:'/ship_ads',
             templateUrl:'./view/ship_ads/ship_ads.html',
             controller:'ship_adsController',
+            cache:false,
             resolve:{
               des:['$ocLazyLoad',function($ocLazyLoad){
                 return $ocLazyLoad.load('ship_ads');
