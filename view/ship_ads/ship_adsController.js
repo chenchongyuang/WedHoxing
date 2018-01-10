@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('ship_adsController',['$scope','$state','$stateParams',function($scope,$state,$stateParams){
+  .controller('ship_adsController',['$scope','$state','$stateParams','API',function($scope,$state,$stateParams,API){
   	  $scope.oPrev=function(){
   	  	window.history.go(-1);
   	  	console.log($stateParams);
@@ -9,18 +9,12 @@ angular.module('app')
       };
 
       $scope.Add_select=[];
-      $scope.plus=function(){
-      	let arr=[];
-      	for(key in $stateParams){
-      		if($stateParams[key]){
-      			arr.push(key);
-      		}
-      	}
-      	if(arr.length >= 4){
-      		let obj=$stateParams;
-          $scope.Add_select.push(obj);
-          console.log($scope.Add_select);
-      	}
-      }
-      $scope.plus();
+      $scope.address =[];
+      API.fetchGet('http://127.0.0.1:9000/ship_ads')
+       .then(function(data){
+          console.log(data);
+       })
+       .catch(function(err){
+          console.log(err);
+       })
   }])

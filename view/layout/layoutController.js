@@ -25,5 +25,5 @@ angular.module('app')
              txt:'个人',
              url:'layout.mine'
   	   }]
-       $rootScope.id = $ionicPopup.id;
+      
    }])

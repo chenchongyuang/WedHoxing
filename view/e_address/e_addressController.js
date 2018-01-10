@@ -1,23 +1,24 @@
 angular.module('app')
-  .controller('e_addressController',['$scope','$state','$ionicPopup',function($scope,$state,$ionicPopup){
-  	$scope.oPrev=function(){
+  .controller('e_addressController',['$scope','$state','$ionicPopup','API','$rootScope',function($scope,$state,$ionicPopup,API,$rootScope){
+  	//返回上一页
+    $scope.e_address_value = ['','','','']
+    
+    
+    $scope.oPrev=function(){
   		window.history.go(-1);
   	};
+
   	$scope.e_address=[{
-  		txt:'收货人：',
-  		value:''
+  		txt:'收货人：'
   	},
   	{
-  		txt:'手机号：',
-  		value:''
+  		txt:'手机号：'
     },
     {
-    	txt:'省市区：',
-    	value:''
+    	txt:'省市区：'
     },
     {
-    	txt:'详细地址：',
-    	value:''
+    	txt:'详细地址：'
     }];
     //提示框
      $scope.dishi=function(a){
@@ -29,29 +30,37 @@ angular.module('app')
       }
       $scope.reg=/^1[34578]\d{9}$/;
     //---------------------------------
-    //提交按钮
-    $scope.fasho=function(url){
-    	let arr=[];
+    //提交地址按钮,向后台t_address表插入地址数据
+    
+    $scope.fasho=function(){
 
-    	for(let key in $scope.e_address){
-    		if($scope.e_address[key].value){
-    			arr.push($scope.e_address[key].value);
-    		}
-    	}
-        if(arr.length == 4){
-          if($scope.reg.test(arr[1])){
-            $state.go(url,{name:$scope.e_address[0].value,phone:$scope.e_address[1].value,address:$scope.e_address[2].value,deta_address:$scope.e_address[3].value});
-          }else{
-            $scope.dishi('正确的手机号');
-          }
-        }else{
-          let a=null;
-          for(let i=0;i<$scope.e_address.length;i++){
-              if($scope.e_address[i].value == ''){
-                a=$scope.e_address[i].txt;
+      $scope.obj={
+        uname:$rootScope.userInfo.uname,
+        aname:$scope.e_address_value[0],
+        aphone:$scope.e_address_value[1],
+        area:$scope.e_address_value[2],
+        detailed_area:$scope.e_address_value[3],
+        uphone:$rootScope.userInfo.phone
+      }
+      if ($scope.e_address_value[0] == '') {
+           $scope.dishi('请输入收货人姓名');
+      }else if($scope.e_address_value[1] == ''){
+           $scope.dishi('请输入收货人手机号码');
+      }else if(!$scope.reg.test($scope.e_address_value[1])){
+           $scope.dishi('请输入正确手机号码');
+      }else if($scope.e_address_value[2] == ''){
+           $scope.dishi('请输入省市区');
+      }else if($scope.e_address_value[3] == ''){
+           $scope.dishi('请输入详细地址');
+      }else{
+            API.fetchGet('http://127.0.0.1:9000/address',$scope.obj)
+              .then(function(data){
+                 console.log(data);
+                 $state.go('ship_ads');
+              })
+              .catch(function(err){
+                console.log(err);
+              })
               }
-          }
-          $scope.dishi(a);
-          }
         }
   }])
