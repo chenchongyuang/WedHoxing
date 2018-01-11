@@ -5,7 +5,6 @@ angular.module('app')
       //返回上一页
       $scope.oPrev=function(){
   	  	window.history.go(-1);
-  	  	console.log($stateParams);
   	  };
       //页面跳转
       $scope.click=function(url){
@@ -27,7 +26,6 @@ angular.module('app')
            for(let i=0;i<$scope.Add_select.length;i++){
               $scope.address.push(false);
            }
-          console.log($scope.address);
        })
        .catch(function(err){
           console.log(err);

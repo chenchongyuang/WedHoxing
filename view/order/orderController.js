@@ -27,8 +27,6 @@ angular.module('app')
         .then(function(data){
           $scope.recommend_pro = data.data[1];
           $scope.order_product = data.data[0];
-          console.log($scope.recommend_pro);
-          console.log($scope.order_product[1].status_s);
             for(let key in $scope.order_product ){
               if($scope.order_product[key].status_s == 4){
                    //未评论
@@ -44,8 +42,6 @@ angular.module('app')
                 $scope.order.ship.push($scope.order_product[key]);
               } 
             }
-
-            console.log(data);
         })
         .catch(function(err){
           console.log(err);

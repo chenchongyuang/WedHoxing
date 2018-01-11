@@ -22,7 +22,6 @@ angular.module('app')
    	   	  	  .then(function(data){
    	   	  	  	tip.loadTips.hideLoading();
    	   	  	  	$scope.forget_pwd.code1 = data.data.code;
-   	   	  	  	  console.log(data);
    	   	  	  })
    	   	  	  .catch(function(err){
    	   	  	  	tip.loadTips.hideLoading();
@@ -67,7 +66,6 @@ angular.module('app')
               })
               .catch(function(err){
               	 tip.loadTips.hideLoading();
-              	 
               	 console.log(err);
               })
    	   	   }

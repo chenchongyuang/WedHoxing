@@ -76,6 +76,7 @@ angular.module('app')
           //产品详情页
           .state('pro_detaLayout.product_deta',{
             url:'/product_deta/:id',
+            cache:false,
             templateUrl:'./view/product_deta/product_deta.html',
             controller:'product_detaController',
             resolve:{

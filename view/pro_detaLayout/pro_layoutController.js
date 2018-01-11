@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('pro_layoutController',['$scope','buymodal','$location','$state','$stateParams','$ionicPopup','API',function($scope,buymodal,$location,$state,$stateParams,$ionicPopup,API){
+  .controller('pro_layoutController',['$scope','buymodal','$location','$state','$stateParams','$ionicPopup','API','$rootScope',function($scope,buymodal,$location,$state,$stateParams,$ionicPopup,API,$rootScope){
   	    $scope.id=null;
         $scope.reg='￥76';
         $scope.selected=null;
@@ -12,20 +12,19 @@ angular.module('app')
            reg:'',
            store_count:''
         }
-        console.log($stateParams);
   	    API.fetchGet('http://127.0.0.1:9000/product_data',{id:$stateParams.id})
           .then(function(data){
               $scope.pro_layout.pro_img = data.data[0].pimage;
               $scope.pro_layout.reg = data.data[0].market_price;
               $scope.pro_layout.store_count = data.data[0].store_count;
               $scope.pro_layout.title = data.data[0].goods_name;
-              console.log(data.data[0]);
+              console.log($scope.pro_layout);
           })
           .catch(function(err){
             console.log(err);
           })
         
-
+     
       //模态购买页----
       buymodal.initModal($scope);
         
@@ -40,12 +39,13 @@ angular.module('app')
       $scope.click=function(url){
           $location.path(url);
       }
-       $scope.fenlei=[{
-          txt:'红白'
-       },
-       {
-          txt:'蓝白'
-       }
+       $scope.fenlei=[
+           {
+              txt:'红白'
+           },
+           {
+              txt:'蓝白'
+           }
        ];
 
 
@@ -85,9 +85,25 @@ angular.module('app')
       }
        //加入购物车
       $scope.join=function(){
+        $scope.join_shopping = {
+            image:$scope.pro_layout.pro_img,
+            price:$scope.pro_layout.reg,
+            sum:$scope.pro_layout.quan,
+            name:$scope.pro_layout.title,
+            uid:2
+        }
         let aID=$scope.id;
          if(aID != null && $scope.pro_layout.quan >0){
-           $state.go('layout.shopping',{txt:$scope.pro_layout.title,img:$scope.pro_layout.pro_img,sum:'x'+$scope.pro_layout.quan,reg:$scope.pro_layout.reg,title:$scope.fenlei[aID].txt,value:false});
+          API.fetchGet('http://127.0.0.1:9000/join_shopping',$scope.join_shopping)
+            .then(function(data){
+              console.log(data);
+              //$rootScope.prompt_box('成功加入购物车');
+            })
+            .catch(function(err){
+              $rootScope.prompt_box('出错了');
+              console.log(err);
+            })
+           //$state.go('layout.shopping');
            buymodal.closeModal($scope);
          }else{
           if(aID == null && $scope.pro_layout.quan > 0){

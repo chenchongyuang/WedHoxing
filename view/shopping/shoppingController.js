@@ -5,7 +5,6 @@ angular.module('app')
        .then(function(data){
         $scope.shopping.shopping_product = data.data[0];
         $scope.shopping.recommend_product = data.data[1];
-        console.log(data);
        })
        .catch(function(err){
         console.log(err);
@@ -42,7 +41,6 @@ angular.module('app')
               }
        }
       if(arr_obj.length >=5){
-        console.log($stateParams)
         $scope.shopping.push($stateParams);
       }
     }
@@ -78,7 +76,6 @@ angular.module('app')
   //删除按钮
   $scope.onItemDelete = function(item,$index) {
     $scope.shopping.shopping_product.splice($scope.shopping.shopping_product.indexOf(item), 1);
-       console.log(item.price);
        if($scope.shopping.value[$index]){
         $scope.shopping.sum = $scope.shopping.sum - Number( item.price * item.sum)
        }

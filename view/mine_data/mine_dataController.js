@@ -3,30 +3,33 @@ angular.module('app')
   	$scope.oPrev=function(){
   		window.history.go(-1);
   	}
-
-  	console.log($rootScope.userInfo);
-  	
   	$scope.data = {
-	  	wifi:$rootScope.userInfo.uname,
+	  	uname:$rootScope.userInfo.uname,
 	  	ger:'',
 	  	position:'广州',
-	  	birthday:'1995.12.15'
+	  	birthday:'1995.12.15',
+	  	uid:$rootScope.userInfo.uid
 	  };
-     // $scope.data.wifi=$rootScope.userInfo.uname;
-     console.log($scope.data.wifi);
-	   
 		 //修改昵称弹框
 	  	$scope.name = function() {
-  	  // 自定义弹窗
 			  var myPopup = $ionicPopup.show({
-			    template: '<input type="text" ng-model="data.wifi" >',
+			    template: '<input type="text" ng-model="data.uname" >',
 			    title: '请输入昵称',
 			    scope:$scope,
 			    buttons: [
 			      { text: '取消' },
 			      {
 			        text: '<b>确定</b>',
-			        type: 'button-positive'
+			        type: 'button-positive',
+			        onTap:function(){
+			        	API.fetchGet('http://127.0.0.1:9000/mine_data',{obj:$scope.data,val:$scope.data.uname})
+			        	.then(function(data){
+			        		console.log(data);
+			        	})
+			        	.catch(function(err){
+			        		console.log(err);
+			        	})
+			        }
 			      }
 			    ]
 			  });
@@ -43,6 +46,13 @@ angular.module('app')
 	        type: 'button-positive',
             onTap: function(e) {
 	          $scope.data.ger='男';
+	          API.fetchGet('http://127.0.0.1:9000/mine_data',{obj:$scope.data,val:$scope.data.ger})
+	        	.then(function(data){
+	        		console.log(data);
+	        	})
+	        	.catch(function(err){
+	        		console.log(err);
+	        	})
 	        }
 	         },
 	      {

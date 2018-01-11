@@ -1,9 +1,7 @@
 angular.module('app')
   .controller('e_addressController',['$scope','$state','$ionicPopup','API','$rootScope',function($scope,$state,$ionicPopup,API,$rootScope){
   	//返回上一页
-    $scope.e_address_value = ['','','','']
-    
-    
+    $scope.e_address_value = ['','','',''];
     $scope.oPrev=function(){
   		window.history.go(-1);
   	};
@@ -55,7 +53,6 @@ angular.module('app')
       }else{
             API.fetchGet('http://127.0.0.1:9000/address',$scope.obj)
               .then(function(data){
-                 console.log(data);
                  $state.go('ship_ads');
               })
               .catch(function(err){

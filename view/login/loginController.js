@@ -38,15 +38,14 @@ angular.module('app')
 				                	$rootScope.userInfo.phone = data.data.phone;
 				                	$rootScope.userInfo.uname = data.data.uname;
 				                	$rootScope.userInfo.default_address = data.data.default_address;
+				                	$rootScope.userInfo.uid = data.data.uid;
 				                	$rootScope.userInfo.isLogin = true;
 				                	tip.loadTips.hideLoading();
-				                	console.log($rootScope.userInfo);
-				                	console.log(data);
 				                	$state.go('layout.home');
 				                }
 				           }))
 				           .catch(function(err){
-				           	   console.log('请求失败');
+				           	   $scope.prompt_box('登陆失败');
 				           })
 	     	}
      }
