@@ -1,9 +1,8 @@
 angular.module('app')
   .controller('pro_layoutController',['$scope','buymodal','$location','$state','$stateParams','$ionicPopup','API','$rootScope',function($scope,buymodal,$location,$state,$stateParams,$ionicPopup,API,$rootScope){
   	    $scope.id=null;
-        $scope.reg='￥76';
         $scope.selected=null;
-        $scope.aIndex=null;
+        $scope.aIndex=[];
         $scope.pro_layout={
            quan:0,
            pro_img:'',
@@ -11,8 +10,12 @@ angular.module('app')
            city:'',
            reg:'',
            store_count:'',
-           product_class:''
+           product_class:'',
+           class:{},
+           class_style:{},
+           select:{}
         }
+        
   	    API.fetchGet('http://127.0.0.1:9000/product_data',{id:$stateParams.id})
           .then(function(data){
               $scope.pro_layout.pro_img = data.data[0].pimage;
@@ -25,8 +28,38 @@ angular.module('app')
                      $scope.pro_layout.product_class.push(a[i].split(':'));
                      $scope.pro_layout.product_class[i][0]
                  }
-              
-              console.log($scope.pro_layout.product_class);
+                 for(let i=0;i<$scope.pro_layout.product_class.length;i++){
+                     $scope.pro_layout.class['title'+ [i]] = $scope.pro_layout.product_class[i][0];
+                     $scope.pro_layout.class_style['style' + [i]] = $scope.pro_layout.product_class[i][1];
+                 }
+                 var length=0;
+                 for(let i=0;i<$scope.pro_layout.product_class.length;i++){
+                     $scope.pro_layout.select['a'+[i]] = $scope.pro_layout.class_style['style'+[i]].split(',');
+                     length += $scope.pro_layout.select['a'+[i]].length
+                     
+                 }
+                 for(let i=0;i<length;i++){
+                    if(i < $scope.pro_layout.select.a0.length + $scope.pro_layout.select.a1.length && i>=$scope.pro_layout.select.a0.length){
+                               $scope.aIndex.push('b'+i);
+                    }else if(i < $scope.pro_layout.select.a0.length){
+                               $scope.aIndex.push('a'+i);
+                    }
+                 }
+
+                 $scope.objaa={
+                    fn:{}
+                 };
+                      for(let i=0;i<Object.keys($scope.pro_layout.class_style).length;i++){
+                         $scope.objaa.fn['xzhong'+[i]] = function(index){
+                                    console.log(index);
+                         };
+                   /*function(index){
+                        console.log($scope.pro_layout.select['a'+[index]][index]);
+                   }*/
+                 }
+                 
+                  console.log($scope.objaa)
+
           })
           .catch(function(err){
             console.log(err);
@@ -47,22 +80,15 @@ angular.module('app')
       $scope.click=function(url){
           $location.path(url);
       }
-       $scope.fenlei=[
-           {
-              txt:'红白'
-           },
-           {
-              txt:'蓝白'
-           }
-       ];
-
-
+      
+      
        //款式选择
-       $scope.xzhong=function(index){
+       /*$scope.xzhong=function(index){
+            console.log($scope.pro_layout.select['a'+[index]][index]);
              $scope.aIndex=index;
              $scope.id=index;
-             $scope.selected=$scope.fenlei[index].txt;
-       }
+             //$scope.selected=$scope.fenlei[index].txt;
+       }*/
        //----------------------------
        //跳转页面
        $scope.click1=function(url){

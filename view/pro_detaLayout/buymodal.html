@@ -20,10 +20,11 @@
                          <i class="icon ion-ios-arrow-right"></i>
                       </button>
                   </ion-item>
-                  <ion-item class="item-button-right pro_select" ng-repeat="item in ">
-                     <!--  <h4 class="dis_title">{{}}</h4>
-                     <p ng-repeat="key in fenlei track by $index"  ng-class="{ 'xz': aIndex === $index }" ng-click="xzhong($index)">{{key.txt}}</p> -->
+                  <ion-item class="item-button-right pro_select" ng-repeat="item in pro_layout.class track by $index">
+                     <h4 class="dis_title">{{item}}</h4>
+                    <p ng-click="objaa.fn['xzhong' + $index](aIndex[$index])" ng-repeat="key in pro_layout.select['a' + $index] track by $index"  ng-class="{ 'xz': aIndex === $index }" >{{key}}</p>
                   </ion-item>
+
                   
                   <ion-item class="item-button-right pro_select">
                      <div class="overflow">
