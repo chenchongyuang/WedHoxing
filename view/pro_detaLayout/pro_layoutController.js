@@ -10,7 +10,8 @@ angular.module('app')
            title:'',
            city:'',
            reg:'',
-           store_count:''
+           store_count:'',
+           product_class:''
         }
   	    API.fetchGet('http://127.0.0.1:9000/product_data',{id:$stateParams.id})
           .then(function(data){
@@ -18,7 +19,14 @@ angular.module('app')
               $scope.pro_layout.reg = data.data[0].market_price;
               $scope.pro_layout.store_count = data.data[0].store_count;
               $scope.pro_layout.title = data.data[0].goods_name;
-              console.log($scope.pro_layout);
+              let a=data.data[0].product_class.split(';')
+              $scope.pro_layout.product_class=[];
+                 for(let i=0;i<a.length;i++){
+                     $scope.pro_layout.product_class.push(a[i].split(':'));
+                     $scope.pro_layout.product_class[i][0]
+                 }
+              
+              console.log($scope.pro_layout.product_class);
           })
           .catch(function(err){
             console.log(err);

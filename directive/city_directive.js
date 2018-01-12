@@ -6,6 +6,7 @@ angular.module('app')
   	  	templateUrl:'./view/mine_data/city.html',
 
   	  	link:function(){
+  	  		
   	  		 var area1 = new LArea();
   	  		
 			    area1.init({
@@ -33,4 +34,5 @@ angular.module('app')
 			    });
 			  	  	}
 			  	  }
+
   }])

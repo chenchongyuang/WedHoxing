@@ -20,16 +20,9 @@
                          <i class="icon ion-ios-arrow-right"></i>
                       </button>
                   </ion-item>
-                  <ion-item class="title_txt_padd">
-                         <div class="row">
-                            <div class="col">
-                                <span class="title_txt">{{pro_layout.title}}</span>
-                            </div>
-                         </div>
-                  </ion-item>
-                  <ion-item class="item-button-right pro_select">
-                      <h4 class="dis_title">颜色分类</h4>
-                      <p ng-repeat="key in fenlei track by $index"  ng-class="{ 'xz': aIndex === $index }" ng-click="xzhong($index)">{{key.txt}}</p>
+                  <ion-item class="item-button-right pro_select" ng-repeat="item in ">
+                     <!--  <h4 class="dis_title">{{}}</h4>
+                     <p ng-repeat="key in fenlei track by $index"  ng-class="{ 'xz': aIndex === $index }" ng-click="xzhong($index)">{{key.txt}}</p> -->
                   </ion-item>
                   
                   <ion-item class="item-button-right pro_select">

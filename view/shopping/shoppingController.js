@@ -1,23 +1,26 @@
 angular.module('app')
   .controller('shoppingController',['$scope','$state','$stateParams','API',function($scope,$state,$stateParams,API){
      //后台数据接口
+     $scope.shopping ={
+         shopping_product:[],
+         value:[],
+         quanbu:false,
+         sum:0,
+         recommend_product:[]
+     }
      API.fetchGet('http://127.0.0.1:9000/shopping')
        .then(function(data){
         $scope.shopping.shopping_product = data.data[0];
+        for(let i=0;i<$scope.shopping.shopping_product.length;i++){
+          $scope.shopping.value.push(false);
+        }
         $scope.shopping.recommend_product = data.data[1];
        })
        .catch(function(err){
         console.log(err);
        })
 
-     $scope.shopping ={
-         shopping_product:[],
-         value:[false,false,false,false,false],
-         quanbu:false,
-         sum:0,
-         recommend_product:[]
-
-     }
+     
      //跳转页面
      $scope.click=function(id){
          $state.go('pro_detaLayout.product_deta',{id:id});

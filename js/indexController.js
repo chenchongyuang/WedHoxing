@@ -5,7 +5,8 @@ angular.module('app')
 		 	 	isLogin:false,
 		 	 	uname:'',
         default_addres:'',
-        uid:2
+        uid:2,
+        ger:''
 		 	 };
        $rootScope.prompt_box=function(name){
           $ionicPopup.show({

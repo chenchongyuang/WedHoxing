@@ -1,13 +1,19 @@
 angular.module('app')
   .controller('mine_dataController',['$scope','$ionicPopup','API','$rootScope',function($scope,$ionicPopup,API,$rootScope){
   	$scope.oPrev=function(){
+  		API.fetchGet('http://127.0.0.1:9000/mine_data',{obj:$scope.data,val1:'u_address',val2:'uname',val3:'ger'})
+        	.then(function(data){
+        		console.log(data);
+        	})
+        	.catch(function(err){
+        		console.log(err);
+        	})
   		window.history.go(-1);
   	}
   	$scope.data = {
 	  	uname:$rootScope.userInfo.uname,
-	  	ger:'',
-	  	position:'广州',
-	  	birthday:'1995.12.15',
+	  	ger:$rootScope.userInfo.ger,
+	  	u_address:$rootScope.userInfo.default_address,
 	  	uid:$rootScope.userInfo.uid
 	  };
 		 //修改昵称弹框
@@ -22,13 +28,13 @@ angular.module('app')
 			        text: '<b>确定</b>',
 			        type: 'button-positive',
 			        onTap:function(){
-			        	API.fetchGet('http://127.0.0.1:9000/mine_data',{obj:$scope.data,val:$scope.data.uname})
+			        	/*API.fetchGet('http://127.0.0.1:9000/mine_data',{obj:$scope.data,val:'uname'})
 			        	.then(function(data){
 			        		console.log(data);
 			        	})
 			        	.catch(function(err){
 			        		console.log(err);
-			        	})
+			        	})*/
 			        }
 			      }
 			    ]
@@ -46,13 +52,13 @@ angular.module('app')
 	        type: 'button-positive',
             onTap: function(e) {
 	          $scope.data.ger='男';
-	          API.fetchGet('http://127.0.0.1:9000/mine_data',{obj:$scope.data,val:$scope.data.ger})
+	         /* API.fetchGet('http://127.0.0.1:9000/mine_data',{obj:$scope.data,val:'ger'})
 	        	.then(function(data){
 	        		console.log(data);
 	        	})
 	        	.catch(function(err){
 	        		console.log(err);
-	        	})
+	        	})*/
 	        }
 	         },
 	      {

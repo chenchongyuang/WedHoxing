@@ -38,8 +38,10 @@ angular.module('app')
 				                	$rootScope.userInfo.phone = data.data.phone;
 				                	$rootScope.userInfo.uname = data.data.uname;
 				                	$rootScope.userInfo.default_address = data.data.default_address;
+				                	$rootScope.userInfo.ger = data.data.ger;
 				                	$rootScope.userInfo.uid = data.data.uid;
 				                	$rootScope.userInfo.isLogin = true;
+				                	console.log(data);
 				                	tip.loadTips.hideLoading();
 				                	$state.go('layout.home');
 				                }
