@@ -6,9 +6,21 @@
       <span class="title">忘记密码</span>
 </ion-header-bar>
 <ion-content>
+      <div class="row">
+          <div class="col col-50 next text-center">
+              <button class="button button-balanced button-block" ng-click="switch(true)">手机找回</button>
+              <span class="forget_pwd_bottom" ng-if="forget_pwd.switch_index == true"></span>
+          </div> 
+          <div class="col col-50 next text-center">
+               <button class="button button-balanced button-block" ng-click="switch(false)">邮箱找回</button>
+               <span class="forget_pwd_bottom" ng-if="forget_pwd.switch_index == false"></span>
+          </div> 
+      </div>
       <ion-list class="padding">
           <label class="item item-input">
-              <input type="text" name="" ng-model="forget_pwd.phone" value="{{forget_pwd.phone}}" placeholder="请输入手机号码" />
+              <input type="text" name="" ng-model="forget_pwd.phone" value="{{forget_pwd.phone}}" placeholder="请输入手机号码" ng-if="forget_pwd.switch_index == true" />
+              <input type="text" name="" ng-model="forget_pwd.email" value="{{forget_pwd.email}}" placeholder="请输入邮箱"
+              ng-if="forget_pwd.switch_index == false">
           </label>
           <div class="code">
           <label class="item item-input ">
@@ -24,5 +36,6 @@
           </label>
           <button class="button button-balanced button-block" ng-click="obtain()" >确定</button>
       </ion-list>
+
 </ion-content>
 </div>

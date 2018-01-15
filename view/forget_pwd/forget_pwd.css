@@ -8,3 +8,15 @@
    min-height:38px; 
    z-index: 100;
 }
+.forget_pwd .next{
+    position: relative;
+}
+.forget_pwd .next .forget_pwd_bottom{
+   display: block;
+   position: absolute;
+   bottom:0;
+   left: calc((100% - 90%)/2);
+   width: 90%;
+   height: 2px;
+   background: red;
+}

@@ -1,41 +1,76 @@
 angular.module('app')
    .controller('forget_pwdController',['$scope','API','$state','$rootScope','tip',function($scope,API,$state,$rootScope,tip){
-   	   $scope.forget_pwd={
+   	   
+       $scope.forget_pwd={
    	   	  phone:'',
    	   	  pwd:'',
    	   	  forget_pwd:'',
    	   	  code1:'',
-          code2:''
+          code2:'',
+          switch_index:false,
+          email:''
    	   };
-       $scope.reg=/^1[35678]\d{9}$/;
-       //获取验证码
+       //正则验证
+       $scope.reg={
+        phone:/^1[35678]\d{9}$/
+      };
+       //修改修改方式切换
+       $scope.switch = function(val){
+            $scope.forget_pwd={
+              phone:'',
+              pwd:'',
+              forget_pwd:'',
+              code1:'',
+              code2:'',
+              switch_index:val,
+              email:''
+            }
+            console.log($scope.forget_pwd)
+       }
+      
    	   $scope.obtain_code=function(){
-   	   	  if( $scope.forget_pwd.phone == ''){
+
+         if($scope.forget_pwd.switch_index){
+         //手机获取验证码
+             if( $scope.forget_pwd.phone == ''){
               $rootScope.prompt_box('手机号不能为空');
-              return false;
-   	   	  }else if(!$scope.reg.test($scope.forget_pwd.phone)){
-   	   	  	  $rootScope.prompt_box('请输入正确的手机号码');
-   	   	  	  return false;
-   	   	  }else{
-   	   	  	tip.loadTips.showLoading();
-   	   	  	API.fetchPost('http://127.0.0.1:9000/message')
-   	   	  	  .then(function(data){
-   	   	  	  	tip.loadTips.hideLoading();
-   	   	  	  	$scope.forget_pwd.code1 = data.data.code;
-   	   	  	  })
-   	   	  	  .catch(function(err){
-   	   	  	  	tip.loadTips.hideLoading();
-   	   	  	  	console.log(err);
-   	   	  	  })
-   	   	  	  return true;
-   	   	  }
+                  return false;
+              }else if(!$scope.reg.phone.test($scope.forget_pwd.phone)){
+                  $rootScope.prompt_box('请输入正确的手机号码');
+                  return false;
+              }else{
+                tip.loadTips.showLoading();
+                   
+                    API.fetchPost('http://127.0.0.1:9000/message',$scope.forget_pwd)
+                      .then(function(data){
+                        tip.loadTips.hideLoading();
+                        $scope.forget_pwd.code1 = data.data.code;
+                      })
+                      .catch(function(err){
+                        tip.loadTips.hideLoading();
+                        console.log(err);
+                      })
+                    return true; 
+                 }
+         }else{
+           //email获取验证码
+           API.fetchPost('http://127.0.0.1:9000/message_email',$scope.forget_pwd)
+             .then(function(data){
+                console.log(data);
+             })
+             .catch(function(err){
+                console.log(err);
+             })
+              
+         }
+
    	   }
-       //修改密码
+       //手机修改密码
    	   $scope.obtain=function(){
    	   	   if($scope.forget_pwd.phone == ''){
 	   	   	   	$rootScope.prompt_box('手机号不能为空');
 	   	   	   	return false;
-   	   	   }else if(!$scope.reg.test($scope.forget_pwd.phone)){
+   	   	   }else if(!$scope.reg.phone.test($scope.forget_pwd.phone)){
    	   	   	  $rootScope.prompt_box('请输入正确的手机号码');
    	   	  	  return false;
    	   	   }else if($scope.forget_pwd.code2 == ''){
@@ -58,16 +93,26 @@ angular.module('app')
    	   	  	  return false;
    	   	   }else{
    	   	   	 tip.loadTips.showLoading();
-             API.fetchPost('http://127.0.0.1:9000/forget_pwd',$scope.forget_pwd)
-              .then(function(data){
-              	 tip.loadTips.hideLoading();
-              	 $rootScope.prompt_box(data.data);
-                  $state.go('login');
-              })
-              .catch(function(err){
-              	 tip.loadTips.hideLoading();
-              	 console.log(err);
-              })
+             if($scope.forget_pwd.switch_index){
+                 /*API.fetchPost('http://127.0.0.1:9000/forget_pwd',$scope.forget_pwd)
+                  .then(function(data){
+                     tip.loadTips.hideLoading();
+                     $rootScope.prompt_box(data.data);
+                      $state.go('login');
+                  })
+                  .catch(function(err){
+                     tip.loadTips.hideLoading();
+                     console.log(err);
+                  })*/
+                  console.log(1)
+             }else{
+                   console.log(2)
+             }
+             
    	   	   }
    	   }
+      
+      
+       //email修改密码
+       
    }])

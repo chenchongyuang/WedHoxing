@@ -21,7 +21,7 @@
                       </button>
                   </ion-item>
                   <!--产品选择分类-->
-
+                 
                   <ion-item class="item-button-right pro_select" ng-if="pro_layout.class_title.length >= 1">
                      <h4 class="dis_title">{{pro_layout.class_title[0]}}</h4>
 
@@ -61,9 +61,9 @@
                            <span class="remind2">(限购五件）</span>
                         </div>
                         <div class="fr text-right">
-                           <span class="add_cut" ng-click="less()">-</span>
+                           <span class="add_cut" ng-click="puls_less(false)">-</span>
                            <span>{{pro_layout.quan}}</span>
-                           <span class="add_cut" ng-click="puls()">+</span>
+                           <span class="add_cut" ng-click="puls_less(true)">+</span>
                         </div>
                      </div>
                   </ion-item>
