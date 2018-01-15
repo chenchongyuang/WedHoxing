@@ -7,7 +7,7 @@
                <div class="pru_txt">
                   <span class="buy_reg">&yen;{{pro_layout.reg}}</span>
                   <p>库存{{pro_layout.store_count}}件</p>
-                  <p>已选：”{{selected}}“</p>
+                  <p>已选：<br/>{{pro_layout.selected}}</p>
                   <img src="./img/ionic9.png" class="cursor" ng-click="buy_off()" />
                </div>
 
@@ -20,9 +20,37 @@
                          <i class="icon ion-ios-arrow-right"></i>
                       </button>
                   </ion-item>
-                  <ion-item class="item-button-right pro_select" ng-repeat="item in pro_layout.class track by $index">
-                     <h4 class="dis_title">{{item}}</h4>
-                    <p ng-click="objaa.fn['xzhong' + $index](aIndex[$index])" ng-repeat="key in pro_layout.select['a' + $index] track by $index"  ng-class="{ 'xz': aIndex === $index }" >{{key}}</p>
+                  <!--产品选择分类-->
+
+                  <ion-item class="item-button-right pro_select" ng-if="pro_layout.class_title.length >= 1">
+                     <h4 class="dis_title">{{pro_layout.class_title[0]}}</h4>
+
+                   <p ng-repeat="key in pro_layout.select['a' + 0] track by $index" ng-click="pro_layout.click.click0($index,key)" ng-class="{'xz': aIndex0 === $index }">{{key}}</p>
+
+                  </ion-item>
+                  <ion-item class="item-button-right pro_select" ng-if="pro_layout.class_title.length >= 2">
+                     <h4 class="dis_title">{{pro_layout.class_title[1]}}</h4>
+
+                     <p ng-repeat="key in pro_layout.select['a' + 1] track by $index" ng-click="pro_layout.click.click1($index,key)" ng-class="{'xz': aIndex1 === $index }">{{key}}</p>
+
+                  </ion-item>
+                  <ion-item class="item-button-right pro_select" ng-if="pro_layout.class_title.length >= 3">
+                     <h4 class="dis_title">{{pro_layout.class_title[2]}}</h4>
+
+                    <p ng-repeat="key in pro_layout.select['a' + 2] track by $index" ng-click="pro_layout.click.click2($index,key)" ng-class="{'xz': aIndex2 === $index }">{{key}}</p>
+
+                  </ion-item>
+                  <ion-item class="item-button-right pro_select" ng-if="pro_layout.class_title.length >= 4">
+                     <h4 class="dis_title">{{pro_layout.class_title[3]}}</h4>
+
+                    <p ng-repeat="key in pro_layout.select['a' + 3] track by $index" ng-click="pro_layout.click.click3($index,key)" ng-class="{'xz': aIndex3 === $index }">{{key}}</p>
+
+                  </ion-item>
+                  <ion-item class="item-button-right pro_select" ng-if="pro_layout.class_title.length >= 5">
+                     <h4 class="dis_title">{{pro_layout.class_title[4]}}</h4>
+
+                    <p ng-repeat="key in pro_layout.select['a' + 4] track by $index" ng-click="pro_layout.click.click4($index,key)" ng-class="{'xz': aIndex4 === $index }">{{key}}</p>
+
                   </ion-item>
 
                   
