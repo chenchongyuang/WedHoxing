@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2018-01-12 12:50:05
+Date: 2018-01-16 18:52:30
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -44,7 +44,7 @@ CREATE TABLE `t_product` (
 -- ----------------------------
 -- Records of t_product
 -- ----------------------------
-INSERT INTO `t_product` VALUES ('1', '1', '干湿两用电熨斗', '998', '139.00', '1', 'http://127.0.0.1:9000/product_img1.png', 'aa', '...', '001', '1', 'http://127.0.0.1:9000/product_img1.png,http://127.0.0.1:9000/product_img1.png,http://127.0.0.1:9000/product_img1.png', '品牌,Haier/海尔;型号,YD1618;材质,顺滑贴衣底板;最大功率,1000w(含）-1999w(含）;档位选择,4档以上;颜色分类,红白;是否迷你,迷你;调温方式,机械调温', 'http://127.0.0.1:9000/details_img1.png,http://127.0.0.1:9000/details_img2.png,http://127.0.0.1:9000/details_img3.png,http://127.0.0.1:9000/details_img4.png', '1', '1', '颜色:白色,红色;型号:005x,003x');
+INSERT INTO `t_product` VALUES ('1', '1', '干湿两用电熨斗', '998', '139.00', '1', 'http://127.0.0.1:9000/product_img1.png', 'aa', '...', '001', '1', 'http://127.0.0.1:9000/product_img1.png,http://127.0.0.1:9000/product_img1.png,http://127.0.0.1:9000/product_img1.png', '品牌,Haier/海尔;型号,YD1618;材质,顺滑贴衣底板;最大功率,1000w(含）-1999w(含）;档位选择,4档以上;颜色分类,红白;是否迷你,迷你;调温方式,机械调温', 'http://127.0.0.1:9000/details_img1.png,http://127.0.0.1:9000/details_img2.png,http://127.0.0.1:9000/details_img3.png,http://127.0.0.1:9000/details_img4.png', '1', '1', '颜色:白色,红色;型号:005x,003x,004x;容量:500ml,800ml;环保:是,否');
 INSERT INTO `t_product` VALUES ('2', '2', '手持式吸尘器', '995', '425.00', '1', 'http://127.0.0.1:9000/product_img2.png', 'aa', '...', '001', '1', 'http://127.0.0.1:9000/product_img2.png,http://127.0.0.1:9000/product_img2.png,http://127.0.0.1:9000/product_img2.png', '品牌,Haier/海尔;型号,YD1618;材质,顺滑贴衣底板;最大功率,1000w(含）-1999w(含）;档位选择,4档以上;颜色分类,红白;是否迷你,迷你;调温方式,机械调温', 'http://127.0.0.1:9000/product_img2.png,http://127.0.0.1:9000/product_img2.png,http://127.0.0.1:9000/product_img2.png,http://127.0.0.1:9000/product_img2.png', '1', '1', '默认');
 INSERT INTO `t_product` VALUES ('3', '3', '大功率电吹风机', '555', '198.00', '1', 'http://127.0.0.1:9000/product_img3.png', 'aa', '...', '001', '1', 'http://127.0.0.1:9000/product_img3.png,http://127.0.0.1:9000/product_img3.png,http://127.0.0.1:9000/product_img3.png', '品牌,Haier/海尔;型号,YD1618;材质,顺滑贴衣底板;最大功率,1000w(含）-1999w(含）;档位选择,4档以上;颜色分类,红白;是否迷你,迷你;调温方式,机械调温', 'http://127.0.0.1:9000/product_img3.png,http://127.0.0.1:9000/product_img3.png,http://127.0.0.1:9000/product_img3.png,http://127.0.0.1:9000/product_img3.png', '0', '0', '默认');
 INSERT INTO `t_product` VALUES ('4', '4', '大功率电吹风', '154', '154.00', '0', 'http://127.0.0.1:9000/product_img4.png', 'aa', '...', '002', '2', 'http://127.0.0.1:9000/product_img4.png,http://127.0.0.1:9000/product_img4.png,http://127.0.0.1:9000/product_img4.png', '品牌,Haier/海尔;型号,YD1618;材质,顺滑贴衣底板;最大功率,1000w(含）-1999w(含）;档位选择,4档以上;颜色分类,红白;是否迷你,迷你;调温方式,机械调温', 'http://127.0.0.1:9000/product_img4.png,http://127.0.0.1:9000/product_img4.png,http://127.0.0.1:9000/product_img4.png,http://127.0.0.1:9000/product_img4.png', '1', '1', '颜色:白色,红色;型号:005x,003x');
