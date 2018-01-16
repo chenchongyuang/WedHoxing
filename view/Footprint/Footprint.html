@@ -9,25 +9,25 @@
 	<ion-content class="Footprint_center">
          <ion-list>
 		      <div ng-repeat="key in order_product track by $index">
-			       <ion-item class="item-thumbnail-left" ng-click="click('pro_detaLayout.product_deta')">
-			         <img ng-src="{{key.img}}" class="pro_img" />
+			       <ion-item class="item-thumbnail-left" ng-click="click(key.pid)">
+			         <img ng-src="{{key.pimage}}" class="pro_img" />
 			         <div class="row">
 			            <div class="col col-67">
 				             <h2 class="order_deta">
-							          {{key.txt}}
+							          {{key.goods_name}}
 								    </h2>
 							    </div>
 							    <div class="col col-20 text-right">
-			               <span class="pink">{{key.reg}}</span>
-			               <p>{{key.sum}}</p>
+			               <span class="pink">&yen;{{key.market_price}}</span>
+			               <p>x{{key.status}}</p>
 							    </div>
 			         </div>
 			       </ion-item>
 			       <div class="order_btn text-center">
 		            <div class="row">
-		                 <div class="col col-20 col-offset-33"><button class="button">{{key.btn1}}</button></div>
-		                 <div class="col col-20"><button class="button">{{key.btn2}}</button></div>
-		                 <div class="col col-20"><button class="button">{{key.btn3}}</button></div>
+		                 <div class="col col-20 col-offset-33"><button class="button" ng-click="delete(key)">查看物流</button></div>
+		                 <div class="col col-20"><button class="button">追加评论</button></div>
+		                 <div class="col col-20"><button class="button">删除订单</button></div>
 		            </div>
 			       </div>
 		       </div>

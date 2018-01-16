@@ -1,6 +1,4 @@
 angular.module('app')
-  .controller('serviceController',['$scope',function($scope){
-  	  $scope.oPrev=function(){
-  	  	window.history.go(-1);
-  	  }
+  .controller('serviceController',['$scope','$rootScope',function($scope,$rootScope){
+  	
   }])

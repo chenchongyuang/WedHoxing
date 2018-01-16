@@ -1,6 +1,10 @@
 angular.module('app')
  .controller('loginController',['$scope','$http','API','tip','$state','$ionicPopup','$rootScope',function($scope,$http,API,tip,$state,$ionicPopup,$rootScope){
-      
+     
+     //跳转页面
+     $scope.click=function(url){
+         $state.go(url);
+     }
      $scope.login={
 	     	phone:'',
 	     	pwd:''

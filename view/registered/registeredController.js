@@ -50,11 +50,12 @@ angular.module('app')
 
        //验证码倒计时90秒
        $scope.Countdown_fn=function(){
+            $interval.cancel(Time);
             var Time = $interval(function(){
                if($scope.arr.Countdown == 0 ){
                   $scope.arr.disabled=false;
-                  $scope.arr.Countdown=10;
-                  clearInterval(Time);
+                  $scope.arr.Countdown=90;
+                  $interval.cancel(Time); 
                   $scope.code ='';
                }else{
                 $scope.arr.Countdown=$scope.arr.Countdown-1;

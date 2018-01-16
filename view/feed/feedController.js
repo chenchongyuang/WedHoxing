@@ -1,9 +1,7 @@
 angular.module('app')
-  .controller('feedController',['$scope',function($scope){
+  .controller('feedController',['$scope','$rootScope',function($scope,$rootScope){
   	$scope.icon=['icon ion-ios-arrow-left','icon ion-ios-arrow-right'];
-  	$scope.oPrev=function(){
-         	window.history.go(-1);
-         }
+  	
   	$scope.feed=[{
           problem:'功能异常',
           feed_txt:'不能正常使用现有功能'

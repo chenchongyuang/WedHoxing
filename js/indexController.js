@@ -18,4 +18,7 @@ angular.module('app')
                   }]
          })
        }
+       $rootScope.oPrev=function(){
+        window.history.go(-1);
+      }
    }])

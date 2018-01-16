@@ -1,8 +1,6 @@
 angular.module('app')
-  .controller('all_commentController',['$scope',function($scope){
-  	   $scope.oPrev=function(){
-  	  	window.history.go(-1);
-  	  };
+  .controller('all_commentController',['$scope','$rootScope',function($scope,$rootScope){
+  	   
   	   $scope.all_comment=[{
                avatar:'./img/icon7.png',
                name:'小仙女i',

@@ -1,9 +1,7 @@
 angular.module('app')
-  .controller('orderController',['$scope','$stateParams','$ionicSlideBoxDelegate','$state','API',function($scope,$stateParams,$ionicSlideBoxDelegate,$state,API){
-  	  //返回上一页
-      $scope.oPrev=function(){
-  	  	window.history.go(-1);
-  	  };
+  .controller('orderController',['$scope','$stateParams','$ionicSlideBoxDelegate','$state','API','$rootScope',function($scope,$stateParams,$ionicSlideBoxDelegate,$state,API,$rootScope){
+  	  
+      
       $scope.order={
          title:'我的订单',
          comment:[],

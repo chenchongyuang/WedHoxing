@@ -1,8 +1,6 @@
 angular.module('app')
-  .controller('newsController',['$scope','$ionicSlideBoxDelegate',function($scope,$ionicSlideBoxDelegate){
-  	  $scope.oPrev=function(){
-  	  	window.history.go(-1);
-  	  };
+  .controller('newsController',['$scope','$ionicSlideBoxDelegate','$rootScope',function($scope,$ionicSlideBoxDelegate,$rootScope){
+  	
       $scope.slide={
         showPager:false
       }

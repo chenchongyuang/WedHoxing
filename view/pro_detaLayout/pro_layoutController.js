@@ -120,7 +120,7 @@ angular.module('app')
               buymodal.closeModal($scope);
        }
       //-----------------------
-      //添加件数
+      //添加件数,减少件数
        $scope.puls_less=function(onOff){
            if(onOff){
               if($scope.pro_layout.quan <= 5){
@@ -133,14 +133,6 @@ angular.module('app')
             }
             
        }
-       //----------------------------
-       //减少件数
-       $scope.less=function(){
-           
-       }
-       //----------------------------
-       //提示框
-      
        //加入购物车
       $scope.join=function(){
         $scope.join_shopping = {

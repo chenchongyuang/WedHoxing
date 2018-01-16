@@ -1,11 +1,9 @@
 angular.module('app')
-.controller('seo_orderController',['$scope','$location',function($scope,$location){
+.controller('seo_orderController',['$scope','$location','$rootScope',function($scope,$location,$rootScope){
 	$scope.click=function(url){
 		$location.path(url);
 	};
-       $scope.oPrev=function(){
-              window.history.go(-1);
-       }
+     
 	 $scope.order_product=[{
               img:'./img/product_img9.png',
               txt:'SUPOR/苏泊尔 CFXB40FD8241-86家用4L升智能电饭煲电饭锅3-5-6人',

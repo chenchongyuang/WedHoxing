@@ -2,10 +2,6 @@ angular.module('app')
   .controller('ship_adsController',['$scope','$state','$stateParams','API','$rootScope',function($scope,$state,$stateParams,API,$rootScope){
   	  $scope.Add_select=[];
       $scope.address =[];
-      //返回上一页
-      $scope.oPrev=function(){
-  	  	window.history.go(-1);
-  	  };
       //页面跳转
       $scope.click=function(url){
       	$state.go(url);

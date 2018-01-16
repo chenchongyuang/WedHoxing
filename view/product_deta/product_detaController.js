@@ -65,11 +65,6 @@ angular.module('app')
 
     
     //-----------------------
-    //跳转连接
-   	$scope.oPrev=function(){
-         	window.history.go(-1);
-         };
-
     $scope.click=function(url){
       $location.path(url);
     }

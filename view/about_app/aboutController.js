@@ -1,8 +1,6 @@
 angular.module('app')
-  .controller('aboutController',['$scope','$location',function($scope,$location){
-  	  $scope.oPrev=function(){
-  	  	window.history.go(-1);
-  	  }
+  .controller('aboutController',['$scope','$location','$rootScope',function($scope,$location,$rootScope){
+  	  
        $scope.click=function(url){
          $location.path(url);
        }

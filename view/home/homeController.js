@@ -1,6 +1,7 @@
 angular.module('app')
   .controller('homeController',['$scope','$state','API',function($scope,$state,API){
        $scope.click=function(id){
+        console.log(id);
           $state.go('pro_detaLayout.product_deta',{id:id});
        };
        $scope.abvImg=null;

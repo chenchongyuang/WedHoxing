@@ -1,5 +1,5 @@
 angular.module('app')
- .controller('returnsController',['$scope','$state','$ionicSlideBoxDelegate','API',function($scope,$state,$ionicSlideBoxDelegate,API){
+ .controller('returnsController',['$scope','$state','$ionicSlideBoxDelegate','API','$rootScope',function($scope,$state,$ionicSlideBoxDelegate,API,$rootScope){
    $scope.order_product =[];
   //后台数据请求接口
   API.fetchGet('http://127.0.0.1:9000/returns')
@@ -12,9 +12,7 @@ angular.module('app')
     })
 
   //返回上一页
- 	$scope.oPrev=function(){
- 		window.history.go(-1);
- 	};
+ 
 
   //跳转页面
  	$scope.click=function(id){

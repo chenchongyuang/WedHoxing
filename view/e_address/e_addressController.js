@@ -2,10 +2,6 @@ angular.module('app')
   .controller('e_addressController',['$scope','$state','$ionicPopup','API','$rootScope',function($scope,$state,$ionicPopup,API,$rootScope){
   	//返回上一页
     $scope.e_address_value = ['','','',''];
-    $scope.oPrev=function(){
-  		window.history.go(-1);
-  	};
-
   	$scope.e_address=[{
   		txt:'收货人：'
   	},
