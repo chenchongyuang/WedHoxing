@@ -26,7 +26,7 @@
           <label class="item item-input ">
               <input type="text" name="" ng-model="forget_pwd.code2" placeholder="请输入验证码" />
           </label>
-          <button class="button button-balanced btn" ng-click="obtain_code()" >获取验证码</button>
+          <button class="button button-balanced btn" ng-click="obtain_code()" ng-disabled="arr.disabled" >获取验证码<span ng-if="arr.disabled">{{arr.Countdown}}</span></button>
           </div>
           <label class="item item-input">
               <input type="password" name="" ng-model="forget_pwd.pwd" placeholder="请输入密码" />

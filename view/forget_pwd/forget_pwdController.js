@@ -1,6 +1,9 @@
 angular.module('app')
-   .controller('forget_pwdController',['$scope','API','$state','$rootScope','tip',function($scope,API,$state,$rootScope,tip){
-   	   
+   .controller('forget_pwdController',['$scope','API','$state','$rootScope','tip','$interval',function($scope,API,$state,$rootScope,tip,$interval){
+   	   $scope.arr = {
+           Countdown:90,
+           disabled:false
+       };
        $scope.forget_pwd={
    	   	  phone:'',
    	   	  pwd:'',
@@ -10,6 +13,21 @@ angular.module('app')
           switch_index:false,
           email:''
    	   };
+      $scope.Countdown_fn=function(){
+            $interval.cancel(Time);
+            var Time = $interval(function(){
+               if($scope.arr.Countdown == 0 ){
+                  $scope.arr.disabled=false;
+                  $scope.arr.Countdown=90;
+                  $interval.cancel(Time); 
+                  $scope.forget_pwd.code1 ='';
+               }else{
+                $scope.arr.Countdown=$scope.arr.Countdown-1;
+                $scope.arr.disabled=true;
+                console.log($scope.arr.Countdown);
+               }
+            },1000);    
+       }
        //正则验证
        $scope.reg={
         phone:/^1[35678]\d{9}$/,
@@ -44,8 +62,8 @@ angular.module('app')
                     API.fetchPost('http://127.0.0.1:9000/message',$scope.forget_pwd)
                       .then(function(data){
                         tip.loadTips.hideLoading();
+                        $scope.Countdown_fn();
                         $scope.forget_pwd.code1 = data.data.code;
-                        console.log(data)
                       })
                       .catch(function(err){
                         tip.loadTips.hideLoading();
@@ -67,8 +85,7 @@ angular.module('app')
                    .then(function(data){
                       tip.loadTips.hideLoading();
                       $scope.forget_pwd.code1 = data.data.validCode;
-                      console.log($scope.forget_pwd.code1)
-                      console.log(data);
+                      $scope.Countdown_fn();
                    })
                    .catch(function(err){
                       tip.loadTips.hideLoading();
@@ -150,10 +167,9 @@ angular.module('app')
                          tip.loadTips.showLoading();
                          API.fetchPost('http://127.0.0.1:9000/forget_pwd_email',$scope.forget_pwd)
                           .then(function(data){
-                            console.log($scope.forget_pwd);
                              tip.loadTips.hideLoading();
                              $rootScope.prompt_box(data.data);
-                             //$state.go('login');
+                             $state.go('login');
                           })
                           .catch(function(err){
                              tip.loadTips.hideLoading();

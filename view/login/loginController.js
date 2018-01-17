@@ -51,6 +51,7 @@ angular.module('app')
 				                }
 				           }))
 				           .catch(function(err){
+				           	   tip.loadTips.hideLoading();
 				           	   $scope.prompt_box('登陆失败');
 				           })
 	     	}
