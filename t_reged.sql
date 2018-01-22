@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2018-01-16 18:52:34
+Date: 2018-01-22 10:01:18
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -25,17 +25,17 @@ CREATE TABLE `t_reged` (
   `phone` varchar(11) NOT NULL,
   `uname` varchar(255) NOT NULL,
   `registerTime` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `loginstatus` int(11) DEFAULT '0',
+  `loginstatus` int(11) NOT NULL DEFAULT '0',
   `ger` varchar(255) DEFAULT NULL,
   `u_address` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`uid`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_reged
 -- ----------------------------
-INSERT INTO `t_reged` VALUES ('2', '9fee823656cdf98ee07813e904daaa34', '13927975080', '谷歌', '2018-01-16 18:49:51', '1', '', '', '962390910@qq.com');
+INSERT INTO `t_reged` VALUES ('10', '9fee823656cdf98ee07813e904daaa34', '13927975080', '谷歌', '2018-01-22 09:56:45', '1', null, null, null);
 INSERT INTO `t_reged` VALUES ('3', '45dd9abbacf37b2049c446fc6186e27d', '13927975555', '广告', '2018-01-09 20:24:06', '0', '', '', '');
 INSERT INTO `t_reged` VALUES ('4', '938b45e890b00bdc117ab609fd5a77af', '13624264886', '公关', '2018-01-09 20:24:08', '0', '', '', '');
 INSERT INTO `t_reged` VALUES ('5', '45dd9abbacf37b2049c446fc6186e27d', '13927975081', '怪怪的', '2018-01-09 20:24:13', '0', '', '', '');
